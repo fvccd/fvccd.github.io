@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>明东&amp;博客</title>
+  
+  <subtitle>我不认识命运，却为它日夜工作。</subtitle>
+  <link href="https://fvccd.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://fvccd.github.io/"/>
+  <updated>2025-01-20T11:31:58.551Z</updated>
+  <id>https://fvccd.github.io/</id>
+  
+  <author>
+    <name>MDong</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回归啦</title>
+    <link href="https://fvccd.github.io/2025/01/20/%E5%9B%9E%E5%BD%92%E5%95%A6/"/>
+    <id>https://fvccd.github.io/2025/01/20/%E5%9B%9E%E5%BD%92%E5%95%A6/</id>
+    <published>2025-01-20T11:14:20.000Z</published>
+    <updated>2025-01-20T11:31:58.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>test<br>$$<br>\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \ \frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \ \frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0 \ \end{vmatrix}<br>$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;test&lt;br&gt;$$&lt;br&gt;\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} &amp;amp; \mathbf{j} &amp;amp; \mathbf{k} \ \frac{\partial X}{\parti</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://fvccd.github.io/2025/01/20/hello-world/"/>
+    <id>https://fvccd.github.io/2025/01/20/hello-world/</id>
+    <published>2025-01-20T02:09:35.531Z</published>
+    <updated>2023-03-01T15:00:04.122Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h3><span id="more"></span><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;你好&quot;&gt;&lt;a href=&quot;#你好&quot; class=&quot;headerlink&quot; title=&quot;你好&quot;&gt;&lt;/a&gt;你好&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="https://fvccd.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="hexo" scheme="https://fvccd.github.io/tags/hexo/"/>
+    
+    <category term="原始" scheme="https://fvccd.github.io/tags/%E5%8E%9F%E5%A7%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>chatgpt&#39;s thinks</title>
+    <link href="https://fvccd.github.io/2023/04/24/ai/"/>
+    <id>https://fvccd.github.io/2023/04/24/ai/</id>
+    <published>2023-04-24T14:46:37.000Z</published>
+    <updated>2023-04-25T11:23:57.091Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ChatGPT：与聊天机器人交互的新体验"><a href="#ChatGPT：与聊天机器人交互的新体验" class="headerlink" title="ChatGPT：与聊天机器人交互的新体验"></a>ChatGPT：与聊天机器人交互的新体验</h1><p>ChatGPT是一个基于OpenAI GPT模型的聊天机器人，它在自然语言处理领域取得了一定的成就。作为一名AI爱好者和学生，我对这个项目充满着兴趣和好奇。</p><span id="more"></span><h2 id="1-ChatGPT基本访问"><a href="#1-ChatGPT基本访问" class="headerlink" title="1. ChatGPT基本访问"></a>1. ChatGPT基本访问</h2><p>ChatGPT可以通过网页、手机APP等多种方式进行访问。我们可以在输入框中输入问题或对话内容，ChatGPT会自动分析语义并生成回答。在实际体验中，我发现ChatGPT的表现非常精准，能够快速准确地理解用户需求并给出恰当的答案。</p><p>例如，在询问天气方面，ChatGPT会根据用户所在地区给出实时的天气信息；在提问时间方面，则会根据当前时区给出准确时间。同时，它还具备情感识别能力，能够合理地回应用户情感变化。</p><h2 id="2-ChatGPT技术特点"><a href="#2-ChatGPT技术特点" class="headerlink" title="2. ChatGPT技术特点"></a>2. ChatGPT技术特点</h2><p>ChatGPT采用了深度学习技术和自然语言处理技术进行实现，特别是基于Transformer架构的预训练语言模型— GPT模型。通过不断优化模型参数和微调模型结构，使得机器人能够更加智能化地进行对话。</p><p>在技术特点方面，ChatGPT具有以下优势：</p><ul><li>高效自然语言处理能力。ChatGPT能够深入理解自然语言，对用户提出的问题进行准确解析，并生成自然流畅的回答。</li><li>多轮对话能力。机器人可以通过多轮互动获取上下文信息，生成更加准确和针对性的回答。</li><li>情感识别和表达能力。机器人可以根据用户情感倾向变化，生成相应的感性回答或安慰话语。</li></ul><p>但是也存在一些缺陷：</p><ul><li>对话过程中容易出现歧义或误解。由于模型训练的局限性，机器人无法完全理解某些复杂问题或深层次语义。</li><li>缺少个性化与场景感知能力。机器人无法像人类一样进行针对性操作或交互行为。</li></ul><h2 id="3-ChatGPT的未来展望"><a href="#3-ChatGPT的未来展望" class="headerlink" title="3. ChatGPT的未来展望"></a>3. ChatGPT的未来展望</h2><p>随着科技的不断发展，聊天机器人将会变得越来越智能、个性化和优化化。并且ChatGPT作为AI技术中一种在自然语言处理领域取得成就的项目，在未来有着广阔的发展空间。</p><p>未来聊天机器人可能会实现以下几点：</p><ul><li>更加自然流畅的语言生成和交互过程，向着人类智商、情感和社交能力靠近。</li><li>结合VR、AR等技术，产生和预测出场景信息，并且可以进行更加针对性的操作和交互行为。</li><li>更加 “用户中心化”，对于不同人群有制定化的回答和服务。</li></ul><p>聊天机器人越来越成为人们生活中不可缺少的一部分，这也引发了更多关于技术发展与伦理问题的讨论。在这样的前景下，ChatGPT作为一个重要的项目，将继续在AI领域中有所发展。</p><h1 id="ChatGPT的评价"><a href="#ChatGPT的评价" class="headerlink" title="ChatGPT的评价"></a>ChatGPT的评价</h1><p>ChatGPT是一个基于OpenAI GPT模型的聊天机器人，它在自然语言处理领域取得了一定的成就。本文将从机器人交互、技术实现和未来发展等方面对ChatGPT进行评价。</p><h2 id="1-机器人交互"><a href="#1-机器人交互" class="headerlink" title="1. 机器人交互"></a>1. 机器人交互</h2><p>ChatGPT在人机交互方面表现不俗。它能够通过对话理解用户提出的问题，并给出合理的回答。尤其是在日常生活中常见的问题，如天气、时间、新闻等，ChatGPT都能够迅速且准确地给出答案。此外，它还具备一定的情感识别能力，在用户情感倾向变化较大时给出相应建议或安慰。</p><p>然而，在某些复杂场景下，ChatGPT仍存在理解困难或信息不全面的问题。例如，当用户提出关于健康问题的咨询时，ChatGPT会给出一些通用建议；但是，若需针对具体病症进行分析，则需要更深入的医学知识和专业团队支持。另外，在需要进行特定操作或引导行为时，ChatGPT也无法像人类一样进行直接干预。</p><h2 id="2-技术实现"><a href="#2-技术实现" class="headerlink" title="2. 技术实现"></a>2. 技术实现</h2><p>ChatGPT是基于OpenAI GPT模型的聊天机器人，使用了广泛应用于自然语言处理领域的深度学习技术。GPT模型是一种基于Transformer架构的预训练语言模型，它能够有效地理解和生成自然语言文本。ChatGPT则是在此基础上进行微调和优化得到的。</p><p>ChatGPT通过多轮对话获取上下文信息，根据当前状态生成回答，并在不断交互中更新模型参数。同时，它还利用了问答数据库和知识图谱等资源，增强了知识库和信息检索能力。</p><p>但是，在一些方面仍有不足之处。例如，当对话过程中出现歧义或误解时，ChatGPT会直接套用预测结果而不会主动进行澄清或修正；同时，由于缺少感知与行动能力，它无法像人类一样通过观察场景来获取更多信息。</p><h2 id="3-未来发展"><a href="#3-未来发展" class="headerlink" title="3. 未来发展"></a>3. 未来发展</h2><p>ChatGPT作为智能交互的一种应用形式，在未来有着广阔的发展空间。随着深度学习和自然语言处理技术的不断进步，聊天机器人将会具备更加智能、个性化和人性化的特点。</p><p>未来聊天机器人有望实现更加自然的语言生成和交互过程，甚至能够模拟人类智商、情感和社交能力。同时，结合虚拟现实、增强现实等技术，聊天机器人也将具备更强的交互性和场景感知能力。</p><p>故，ChatGPT是一个令人期待的项目，它不断完善了我们与机器人之间的沟通方式，展示了自然语言处理领域的巨大发展潜力。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;ChatGPT：与聊天机器人交互的新体验&quot;&gt;&lt;a href=&quot;#ChatGPT：与聊天机器人交互的新体验&quot; class=&quot;headerlink&quot; title=&quot;ChatGPT：与聊天机器人交互的新体验&quot;&gt;&lt;/a&gt;ChatGPT：与聊天机器人交互的新体验&lt;/h1&gt;&lt;p&gt;ChatGPT是一个基于OpenAI GPT模型的聊天机器人，它在自然语言处理领域取得了一定的成就。作为一名AI爱好者和学生，我对这个项目充满着兴趣和好奇。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="fusion" scheme="https://fvccd.github.io/categories/fusion/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>利用fusion的apk封装</title>
+    <link href="https://fvccd.github.io/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/"/>
+    <id>https://fvccd.github.io/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/</id>
+    <published>2023-03-03T02:25:49.000Z</published>
+    <updated>2023-04-24T14:43:33.249Z</updated>
+    
+    <content type="html"><![CDATA[<p>很早之前我就在玩fusion app了，不知道的人可以先去了解一下，简单来说就是把一个网站通过修改编辑成一个apk样式，本质上还是网页，apk内容显示速度与网页显示速度有关的。</p><span id="more"></span><p>我的blog示例：<a href="https://wwvx.lanzoul.com/iqzeB0pone5c">https://wwvx.lanzoul.com/iqzeB0pone5c</a><br>密码：dfac<br>fusion app2.0下载：<a href="https://wwvx.lanzoul.com/i6muw0cuzyxa">https://wwvx.lanzoul.com/i6muw0cuzyxa</a><br>密码:bfwb</p><p>参考：<a href="https://www.jianshu.com/p/f4a61baffa7d">https://www.jianshu.com/p/f4a61baffa7d</a></p><p><em>未完待续</em></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;很早之前我就在玩fusion app了，不知道的人可以先去了解一下，简单来说就是把一个网站通过修改编辑成一个apk样式，本质上还是网页，apk内容显示速度与网页显示速度有关的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="fusion" scheme="https://fvccd.github.io/categories/fusion/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>设置新版本next主题的404页面</title>
+    <link href="https://fvccd.github.io/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/"/>
+    <id>https://fvccd.github.io/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/</id>
+    <published>2023-03-02T06:09:47.000Z</published>
+    <updated>2023-03-18T15:15:54.552Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一步：创建404-md"><a href="#第一步：创建404-md" class="headerlink" title="第一步：创建404.md"></a>第一步：创建404.md</h2><p>以前的方法是创建404.html，我尝试了，渲染好像有点问题。<br>于是在网上查询一些方法，是去创建md文件，在此做个总结，也结合了自己的想法。</p><span id="more"></span><p>首先，我们在blog目录的source文件下新建404.md文件，<br>404.md内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">comments: false</span><br><span class="line">permalink: /404</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>当然，具体内容可以自己写，可以参考我的：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">title: 404</span><br><span class="line">comments: false</span><br><span class="line">permalink: /404</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;center&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## **Not Found** </span><br><span class="line"></span><br><span class="line">对不起，您所访问的页面不存在或者已删除</span><br><span class="line"></span><br><span class="line">[点击此处](https://fvccd.github.io/)</span><br><span class="line">`返回首页`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/center&gt;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;center&gt;</span><br><span class="line"></span><br><span class="line">&lt;span style=&quot;margin-left:22px; font-size:30px;color:red;background:#00ff00;&quot;&gt;已隐藏&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/center&gt;</span><br></pre></td></tr></table></figure><h2 id="第二步：配置修改"><a href="#第二步：配置修改" class="headerlink" title="第二步：配置修改"></a>第二步：配置修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  about: /about/ || fa fa-user</span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line">  #schedule: /schedule/ || fa fa-calendar</span><br><span class="line">  留言: /guestbook/ || fa fa-comment</span><br><span class="line">  #sitemap: /sitemap.xml || fa fa-sitemap</span><br><span class="line">  公益: /commonweal/ || fa fa-heartbeat</span><br><span class="line">  相册: /404/ || fa fa-image</span><br></pre></td></tr></table></figure><p>比如，这里我想把相册界面404化，就在//中间加入404即可，图片就不放了，<span style="margin-left:18px; font-size:22px;color:red;">自行试试。</span></p><h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ul><li><p>这里就可以隐藏我们的一些东西了，在menu中把//文件信息删除，加上404就可以了，不想隐藏了，就把404换成原来的即可。</p></li><li><p>我们可以加入404模板，比如一些公益界面，<a href="https://h5.qzone.qq.com/ugc/share?sharetag=74523D4AB0F0B67551A911C4F287F27C&bp7=&bp2=&bp1=&_wv=1&res_uin=1220121213&appid=2&cellid=1634123064&no_topbar=1&subid=&g_ut=3&from=mp&g_f=5758&srctype=62&ticket=">点击这里参考</a></p></li></ul><hr>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;第一步：创建404-md&quot;&gt;&lt;a href=&quot;#第一步：创建404-md&quot; class=&quot;headerlink&quot; title=&quot;第一步：创建404.md&quot;&gt;&lt;/a&gt;第一步：创建404.md&lt;/h2&gt;&lt;p&gt;以前的方法是创建404.html，我尝试了，渲染好像有点问题。&lt;br&gt;于是在网上查询一些方法，是去创建md文件，在此做个总结，也结合了自己的想法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="404" scheme="https://fvccd.github.io/categories/404/"/>
+    
+    <category term="next" scheme="https://fvccd.github.io/categories/404/next/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>鸡汤</title>
+    <link href="https://fvccd.github.io/2023/02/28/%E9%B8%A1%E6%B1%A4/"/>
+    <id>https://fvccd.github.io/2023/02/28/%E9%B8%A1%E6%B1%A4/</id>
+    <published>2023-02-28T11:01:26.000Z</published>
+    <updated>2023-03-02T07:10:34.844Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="努力"><a href="#努力" class="headerlink" title="努力"></a>努力</h3><p>1.不断的努力，不断的去接近梦想，越挫越勇，吃尽酸甜苦辣，能够抵御寒冬，也能够拥抱春天，这样的才叫生活。</p><span id="more"></span><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>2.不管环境多么纵容你，都要对自己有要求，保持自律的气质。或许它暂时不能改变你的现状，但假以时日，它回馈的一定让你惊喜。对自己有要求的人，总不会过得太差。一边随波逐流，一边抱怨环境糟糕的人，最没劲了。</p><h3 id="自勉"><a href="#自勉" class="headerlink" title="自勉"></a>自勉</h3><p>3.所有的努力，不是为了让别人觉得你了不起，而是为了能让自己打心里看得起自己，人生的奔跑，不在于瞬间的爆发，取决于途中的坚持，你纵有千百个理由放弃，也要找一个理由坚持，能激励你，温暖你，感动你的，不是励志语录心灵鸡汤，而是身边比你优秀的人比你还努力！自勉！</p><h3 id="心态"><a href="#心态" class="headerlink" title="心态"></a>心态</h3><p>4.抱最大希望，尽最大努力，做最坏打算，持最好心态，记住该记住的，忘记该忘记的，改变能改变的，接受成事实的，太阳总是新的，每天都是美好的日子。</p><h3 id="磨练"><a href="#磨练" class="headerlink" title="磨练"></a>磨练</h3><p>5.想得太多，麻烦就越多。人生在世，没有一种痛苦会永远伴随着你，没有必要陷在自我的漩涡里走不出来，痛苦只是一个过客，是来磨练你的意志，考验你的信心的，站起来，把困难踩在脚下。</p><h3 id="今天"><a href="#今天" class="headerlink" title="今天"></a>今天</h3><p>6.愚蠢的人总是为昨天悔恨，为明天祈祷，可惜的是少了今天的努力。<br>创造<br>7.不论你在什么时候开始，重要的是开始之后就不要停止;不论你在什么时候结束，重要的是结束之后就不要悔恨!不去耕耘 ，不去播种，再肥的沃土也长不出庄稼，不去奋斗，不去创造，再美的青春也结不出硕果。</p><h3 id="超越"><a href="#超越" class="headerlink" title="超越"></a>超越</h3><p>8.人生，是踏上了就回不了头的征程。要记住：面对，不一定最难过；孤独，不一定不快乐；得到，不一定能长久。珍惜拥有，用心生活，坦然无悔，超越自己，和生命一起精彩！</p><h3 id="顺利"><a href="#顺利" class="headerlink" title="顺利"></a>顺利</h3><p>9.人生无常，最重要的不是你所处的位置，而是你所朝的方向。你不能决定生命的长度，但你可以控制它的宽度；你不能左右天气，但你可以改变心情；你不能改变容貌，但你可以展现笑容；你不能控制他人，但你可以掌握自己；你不能预知明天，但你可以利用今天；你不能样样顺利，但你可以事事尽力。</p><h3 id="救世主"><a href="#救世主" class="headerlink" title="救世主"></a>救世主</h3><p>10.这世界从来没有什么救世主，你弱了，所有困难都强了，你强了，所有阻碍都弱了！</p><h3 id="珍惜"><a href="#珍惜" class="headerlink" title="珍惜"></a>珍惜</h3><p>11.人活一世，珍惜自己所拥有的，才能使自己幸福，追寻适合自己的，亦能使自己更幸福。受挫失误不幸和磨难，是成长的催长素，也是成熟的催熟剂。我们不希望有痛苦，但也绝不能惧怕痛苦。唯有征服自己的人，才有能力去征服一切。</p><h3 id="生命"><a href="#生命" class="headerlink" title="生命"></a>生命</h3><p>12.不要浪费你的生命，在你一定会后悔的地方上。</p><center>---*本文结束*---</center>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;努力&quot;&gt;&lt;a href=&quot;#努力&quot; class=&quot;headerlink&quot; title=&quot;努力&quot;&gt;&lt;/a&gt;努力&lt;/h3&gt;&lt;p&gt;1.不断的努力，不断的去接近梦想，越挫越勇，吃尽酸甜苦辣，能够抵御寒冬，也能够拥抱春天，这样的才叫生活。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="励志" scheme="https://fvccd.github.io/categories/%E5%8A%B1%E5%BF%97/"/>
+    
+    
+    <category term="hexo" scheme="https://fvccd.github.io/tags/hexo/"/>
+    
+    <category term="励志" scheme="https://fvccd.github.io/tags/%E5%8A%B1%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思考</title>
+    <link href="https://fvccd.github.io/2023/02/26/Fudong/"/>
+    <id>https://fvccd.github.io/2023/02/26/Fudong/</id>
+    <published>2023-02-26T02:21:05.000Z</published>
+    <updated>2023-03-03T08:43:15.906Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome my blog!</p><h2 id="这是我的第一篇文章"><a href="#这是我的第一篇文章" class="headerlink" title="这是我的第一篇文章"></a>这是我的第一篇文章</h2><p>今天很开心！  </p><span id="more"></span><hr><p><u>难道不是吗?</u></p><hr><p>第一项：</p><ul><li><p><strong>1</strong>.<strong>遭遇</strong></p></li><li><p><strong>2</strong>.<strong>经历</strong></p></li></ul><p><code>人生</code>很难，我是<a href="https://www.runoob.com/">菜鸟</a></p><p> <strong>这是极为特殊的历史转折期，物质文明发展到这一步注定了精神（信仰）的缺失，灵魂空虚、物欲横流，人们的精神堕入虚无主义，只能沉浸在金钱物质欲望和肉体感官刺激中，有各种不安和痛苦。多少年轻人也失去了纯真的理想和纯美的爱情。这绝不仅是我们这个星球上的生命的悲剧，而是任何一种生命在文明发展进程中注定的悲哀。生命的意义到底是什么？我们到底该怎样活着？——《重大人生启示录前言》</strong></p><p> <strong>人生就是由欲望不满足而痛苦和满足之后无趣这两者所构成。你满心期待着未来的某个快乐，未必理智认知到了它是短暂的而不会持久。人的一生的本质是痛苦，快乐只是昙花一现。</strong></p><p><strong>我们总害怕死亡，而如果人真的可以永远活着，我想人们同样会像害怕死亡一样害怕永恒，或厌倦永恒。人们总爱追问人生的意义，其实人生本无所谓意义，因为存在先于<br>质，本质之前的存在是禁绝思考的。人生的无意义赋予了人的自由，倘若人生有一个注定的意义，那么人人都如同一具机器。</strong></p><p><strong>我们诞生在这个世界是被迫的，这是最糟糕的事实。一种理想主义的人生观是：生命的长度无需受制于肉体自然的衰败，它应该是受你的心灵、你的快乐的需要而去自主选<br>择。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---</center>----------<p>&lt;（下面皆为测试）&gt;</p><ul><li><p><input checked="" disabled="" type="checkbox">  这个链接用 1 作为网址变量 <a href="http://www.google.com/">Google</a></p></li><li><p><input disabled="" type="checkbox">  这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/">Runoob</a></p></li></ul><p><del>然后在文档的结尾为变量赋值</del>（网址）</p><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">this text is blue</span></p><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p><p><img src="https://pic.imgdb.cn/item/63fb5d21f144a01007647d0f.jpg"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Welcome my blog!&lt;/p&gt;
+&lt;h2 id=&quot;这是我的第一篇文章&quot;&gt;&lt;a href=&quot;#这是我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;这是我的第一篇文章&quot;&gt;&lt;/a&gt;这是我的第一篇文章&lt;/h2&gt;&lt;p&gt;今天很开心！  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具" scheme="https://fvccd.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="https://fvccd.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="hexo" scheme="https://fvccd.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
