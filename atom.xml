@@ -6,7 +6,7 @@
   <link href="https://fvccd.github.io/atom.xml" rel="self"/>
   
   <link href="https://fvccd.github.io/"/>
-  <updated>2025-02-01T02:11:36.560Z</updated>
+  <updated>2025-04-14T14:05:57.109Z</updated>
   <id>https://fvccd.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scr文件与cad软件冲突解决方法</title>
+    <link href="https://fvccd.github.io/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>https://fvccd.github.io/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
+    <published>2025-04-14T13:51:10.000Z</published>
+    <updated>2025-04-14T14:05:57.109Z</updated>
+    
+    <content type="html"><![CDATA[<p>Fliqlo屏幕保护的使用问题：</p><span id="more"></span><p>​    如果你电脑安装了CAD等其它软件，修改了.scr文件的关联性，无“配置”及“安装”选项，请参考：修改SCR文件的关联属性。因为在“我的电脑→工具→文件夹选项→文件类型”选项卡里找不到SCR文件类型，所以只能通过“<a href="https://zhida.zhihu.com/search?content_id=173944178&content_type=Article&match_order=1&q=%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8&zhida_source=entity">注册表编辑器</a>”来手动修改：首先定位到HKEY_CLASSES_ROOT.scr，然后将右框里的【数值数据】“AutoCADScriptFile”改成“scrfile”</p><p>退出“注册表编辑器”即可恢复屏保的文件关联。</p><p><a href="https://imgse.com/i/pEWhWG9"><img src="https://s21.ax1x.com/2025/04/14/pEWhWG9.png" alt="pEWhWG9.png"></a></p><hr><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">已经改用Fliplt，不用flash，无黑屏bug的影响。</span></p><p><strong>文件下载安装</strong><br>屏保文件就一个.scr后缀文件，下载地址自己找。</p><p>设置方法：<br>将下载好的文件解压缩放到电脑以下位置<br>32Win系统: C:\Windows\System32<br>64Win系统： C:\Windows\SysWOW64</p><p>安装即可</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Fliqlo屏幕保护的使用问题：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="软件" scheme="https://fvccd.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+    <category term="软件" scheme="https://fvccd.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="scr" scheme="https://fvccd.github.io/tags/scr/"/>
+    
+  </entry>
   
   <entry>
     <title>当“熊猫”遇见“白头鹰”：中美关系的三个意外真相</title>
@@ -141,7 +164,7 @@
     <link href="https://fvccd.github.io/2023/02/26/Fudong/"/>
     <id>https://fvccd.github.io/2023/02/26/Fudong/</id>
     <published>2023-02-26T02:21:05.000Z</published>
-    <updated>2023-03-03T08:43:15.906Z</updated>
+    <updated>2025-04-14T13:58:50.207Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome my blog!</p><h2 id="这是我的第一篇文章"><a href="#这是我的第一篇文章" class="headerlink" title="这是我的第一篇文章"></a>这是我的第一篇文章</h2><p>今天很开心！  </p><span id="more"></span><hr><p><u>难道不是吗?</u></p><hr><p>第一项：</p><ul><li><p><strong>1</strong>.<strong>遭遇</strong></p></li><li><p><strong>2</strong>.<strong>经历</strong></p></li></ul><p><code>人生</code>很难，我是<a href="https://www.runoob.com/">菜鸟</a></p><p> <strong>这是极为特殊的历史转折期，物质文明发展到这一步注定了精神（信仰）的缺失，灵魂空虚、物欲横流，人们的精神堕入虚无主义，只能沉浸在金钱物质欲望和肉体感官刺激中，有各种不安和痛苦。多少年轻人也失去了纯真的理想和纯美的爱情。这绝不仅是我们这个星球上的生命的悲剧，而是任何一种生命在文明发展进程中注定的悲哀。生命的意义到底是什么？我们到底该怎样活着？——《重大人生启示录前言》</strong></p><p> <strong>人生就是由欲望不满足而痛苦和满足之后无趣这两者所构成。你满心期待着未来的某个快乐，未必理智认知到了它是短暂的而不会持久。人的一生的本质是痛苦，快乐只是昙花一现。</strong></p><p><strong>我们总害怕死亡，而如果人真的可以永远活着，我想人们同样会像害怕死亡一样害怕永恒，或厌倦永恒。人们总爱追问人生的意义，其实人生本无所谓意义，因为存在先于<br>质，本质之前的存在是禁绝思考的。人生的无意义赋予了人的自由，倘若人生有一个注定的意义，那么人人都如同一具机器。</strong></p><p><strong>我们诞生在这个世界是被迫的，这是最糟糕的事实。一种理想主义的人生观是：生命的长度无需受制于肉体自然的衰败，它应该是受你的心灵、你的快乐的需要而去自主选<br>择。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---</center>----------<p>&lt;（下面皆为测试）&gt;</p><ul><li><p><input checked="" disabled="" type="checkbox">  这个链接用 1 作为网址变量 <a href="http://www.google.com/">Google</a></p></li><li><p><input disabled="" type="checkbox">  这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/">Runoob</a></p></li></ul><p><del>然后在文档的结尾为变量赋值</del>（网址）</p><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">this text is blue</span></p><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p><p><img src="https://pic.imgdb.cn/item/63fb5d21f144a01007647d0f.jpg"></p>]]></content>
     
