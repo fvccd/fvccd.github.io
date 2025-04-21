@@ -6,7 +6,7 @@
   <link href="https://fvccd.github.io/atom.xml" rel="self"/>
   
   <link href="https://fvccd.github.io/"/>
-  <updated>2025-04-14T14:05:57.109Z</updated>
+  <updated>2025-04-21T08:28:05.316Z</updated>
   <id>https://fvccd.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>软件bug</title>
+    <link href="https://fvccd.github.io/2025/04/21/%E8%BD%AF%E4%BB%B6bug/"/>
+    <id>https://fvccd.github.io/2025/04/21/%E8%BD%AF%E4%BB%B6bug/</id>
+    <published>2025-04-21T08:19:04.000Z</published>
+    <updated>2025-04-21T08:28:05.316Z</updated>
+    
+    <content type="html"><![CDATA[<p>solidworks：</p><p>1.服务无法启动，解决方法：更改此电脑为英文名。</p><p>2.<a href="https://imgse.com/i/pE5l3rV"><img src="https://s21.ax1x.com/2025/04/21/pE5l3rV.png" alt="pE5l3rV.png"></a></p><p>尝试：xxclean运行1650修复。</p><span id="more"></span><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方向杰是真sb</span><br></pre></td></tr></table></figure><center>---*本文待续*---]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;solidworks：&lt;/p&gt;
+&lt;p&gt;1.服务无法启动，解决方法：更改此电脑为英文名。&lt;/p&gt;
+&lt;p&gt;2.&lt;a href=&quot;https://imgse.com/i/pE5l3rV&quot;&gt;&lt;img src=&quot;https://s21.ax1x.com/2025/04/21/pE5l3rV.png&quot; alt=&quot;pE5l3rV.png&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;尝试：xxclean运行1650修复。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="软件" scheme="https://fvccd.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+    <category term="软件" scheme="https://fvccd.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="bug" scheme="https://fvccd.github.io/tags/bug/"/>
+    
+  </entry>
+  
+  <entry>
     <title>scr文件与cad软件冲突解决方法</title>
     <link href="https://fvccd.github.io/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
     <id>https://fvccd.github.io/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
     <published>2025-04-14T13:51:10.000Z</published>
-    <updated>2025-04-14T14:05:57.109Z</updated>
+    <updated>2025-04-21T08:27:39.142Z</updated>
     
     <content type="html"><![CDATA[<p>Fliqlo屏幕保护的使用问题：</p><span id="more"></span><p>​    如果你电脑安装了CAD等其它软件，修改了.scr文件的关联性，无“配置”及“安装”选项，请参考：修改SCR文件的关联属性。因为在“我的电脑→工具→文件夹选项→文件类型”选项卡里找不到SCR文件类型，所以只能通过“<a href="https://zhida.zhihu.com/search?content_id=173944178&content_type=Article&match_order=1&q=%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8&zhida_source=entity">注册表编辑器</a>”来手动修改：首先定位到HKEY_CLASSES_ROOT.scr，然后将右框里的【数值数据】“AutoCADScriptFile”改成“scrfile”</p><p>退出“注册表编辑器”即可恢复屏保的文件关联。</p><p><a href="https://imgse.com/i/pEWhWG9"><img src="https://s21.ax1x.com/2025/04/14/pEWhWG9.png" alt="pEWhWG9.png"></a></p><hr><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">已经改用Fliplt，不用flash，无黑屏bug的影响。</span></p><p><strong>文件下载安装</strong><br>屏保文件就一个.scr后缀文件，下载地址自己找。</p><p>设置方法：<br>将下载好的文件解压缩放到电脑以下位置<br>32Win系统: C:\Windows\System32<br>64Win系统： C:\Windows\SysWOW64</p><p>安装即可</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---]]></content>
     
