@@ -2539,15 +2539,15 @@ a:hover,
 span.exturl:hover {
   color: #ff106c;
 }
-#body {
-  background: url("/images/wallhaven.jpg");
+body {
+  background: url("/images/wallhaven1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: 50% 50%;
 }
 .site-brand-container {
-  background-image: url("/images/wallhaven.jpg");
+  background-image: url("/images/logsmall.png");
   background-size: 100% 100%;
   opacity: 0.9;
 }
