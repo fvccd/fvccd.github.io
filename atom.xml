@@ -3,11 +3,11 @@
   <title>明东&amp;博客</title>
   
   <subtitle>我不认识命运，却为它日夜工作。</subtitle>
-  <link href="https://fvccd.github.io/atom.xml" rel="self"/>
+  <link href="https://fmdblog.ccwu.cc/atom.xml" rel="self"/>
   
-  <link href="https://fvccd.github.io/"/>
-  <updated>2025-07-24T07:12:19.956Z</updated>
-  <id>https://fvccd.github.io/</id>
+  <link href="https://fmdblog.ccwu.cc/"/>
+  <updated>2025-11-17T08:02:01.764Z</updated>
+  <id>https://fmdblog.ccwu.cc/</id>
   
   <author>
     <name>MDong</name>
@@ -17,9 +17,132 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>windows服务报错，读取描述失败，防火墙无法关闭</title>
+    <link href="https://fmdblog.ccwu.cc/2025/11/17/windows%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%EF%BC%8C%E8%AF%BB%E5%8F%96%E6%8F%8F%E8%BF%B0%E5%A4%B1%E8%B4%A5%EF%BC%8C%E9%98%B2%E7%81%AB%E5%A2%99%E6%97%A0%E6%B3%95%E5%85%B3%E9%97%AD/"/>
+    <id>https://fmdblog.ccwu.cc/2025/11/17/windows%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%EF%BC%8C%E8%AF%BB%E5%8F%96%E6%8F%8F%E8%BF%B0%E5%A4%B1%E8%B4%A5%EF%BC%8C%E9%98%B2%E7%81%AB%E5%A2%99%E6%97%A0%E6%B3%95%E5%85%B3%E9%97%AD/</id>
+    <published>2025-11-17T07:57:07.000Z</published>
+    <updated>2025-11-17T08:02:01.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>疑是ABBYY的问题，一个叫sandyd的人封装的破解版卸载程序有问题导致。</p><span id="more"></span><p>问题解决，指南：Win+R，输入regedit，在注册表里找到这个路径HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\MUI\StringCacheSettings 。如果没有StringCacheSettings文件，右键创建一个命名StringCacheSettings。然后在右侧右键新建选择32位值，命名StringCacheGeneration，再选中StringCacheSettings，右键修改，改为10（数值随意），这个不清楚要不要改，我改了，和帖子里面一模一样，重启，就好了</p><center>---*本文结束*---]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;疑是ABBYY的问题，一个叫sandyd的人封装的破解版卸载程序有问题导致。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>conda创建tensorflow环境问题</title>
+    <link href="https://fmdblog.ccwu.cc/2025/10/19/conda%E5%88%9B%E5%BB%BAtensorflow%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/"/>
+    <id>https://fmdblog.ccwu.cc/2025/10/19/conda%E5%88%9B%E5%BB%BAtensorflow%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/</id>
+    <published>2025-10-19T13:41:10.000Z</published>
+    <updated>2025-10-19T14:14:09.505Z</updated>
+    
+    <content type="html"><![CDATA[<p>从错误信息可知，核心问题是 <strong>TensorFlow 2.10.0 与 NumPy 2.0.2 版本不兼容</strong>（TensorFlow 2.10 基于 NumPy 1.x 编译，不支持 NumPy 2.x），同时伴随 CUDA 动态库缺失提示（非关键，仅影响 GPU 加速）。以下是分步解决方案：</p><h3 id="一、核心解决：降级-NumPy-至-1-x-版本"><a href="#一、核心解决：降级-NumPy-至-1-x-版本" class="headerlink" title="一、核心解决：降级 NumPy 至 1.x 版本"></a>一、核心解决：降级 NumPy 至 1.x 版本</h3><ol><li><p>确保已激活 <code>test3</code> 环境（命令行提示符显示 <code>(test3)</code>）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate test3</span><br></pre></td></tr></table></figure></li><li><p>卸载当前 NumPy 2.0.2，安装兼容的 1.x 版本（推荐 1.24.3，与 TensorFlow 2.10 完美匹配）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先卸载现有 NumPy</span></span><br><span class="line">pip uninstall numpy -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装兼容版本（指定 &lt;2 确保是 1.x 系列）</span></span><br><span class="line">pip install numpy==1.24.3</span><br></pre></td></tr></table></figure></li><li><p>验证 NumPy 版本：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list | findstr numpy</span><br></pre></td></tr></table></figure><p>输出应显示 <code>numpy 1.24.3</code>（或其他 1.x 版本）。</p></li></ol><h3 id="二、解决-CUDA-动态库缺失警告（可选，不影响-CPU-运行）"><a href="#二、解决-CUDA-动态库缺失警告（可选，不影响-CPU-运行）" class="headerlink" title="二、解决 CUDA 动态库缺失警告（可选，不影响 CPU 运行）"></a>二、解决 CUDA 动态库缺失警告（可选，不影响 CPU 运行）</h3><p>错误中 <code>cudart64_110.dll not found</code> 是因为未安装 CUDA Toolkit，仅影响 GPU 加速。若无需 GPU 运行，可忽略该警告；若需 GPU 支持，按以下步骤安装：</p><ol><li><p>TensorFlow 2.10 需匹配</p><p>CUDA 11.2 + cuDNN 8.1</p><p>（版本必须严格对应）：</p><ul><li>下载 CUDA 11.2：<a href="https://developer.nvidia.com/cuda-11.2.0-download-archive">https://developer.nvidia.com/cuda-11.2.0-download-archive</a></li><li>下载 cuDNN 8.1：<a href="https://developer.nvidia.com/cudnn-8.1.0-cuda11.2%EF%BC%88%E9%9C%80%E6%B3%A8%E5%86%8C">https://developer.nvidia.com/cudnn-8.1.0-cuda11.2（需注册</a> NVIDIA 账号）</li></ul></li><li><p>安装 CUDA 后，将 cuDNN 解压后的 <code>bin</code>、<code>include</code>、<code>lib</code> 文件夹复制到 CUDA 安装目录（默认 <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2</code>）。</p></li><li><p>重启命令行，重新激活环境并运行代码，GPU 即可正常使用。</p></li></ol><h3 id="三、验证解决方案"><a href="#三、验证解决方案" class="headerlink" title="三、验证解决方案"></a>三、验证解决方案</h3><ol><li><p>在 <code>test3</code> 环境中启动 Python 终端：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure></li><li><p>导入 TensorFlow 验证：</p><p>python</p><p>运行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="built_in">print</span>(tf.__version__)  <span class="comment"># 应输出 2.10.0，无报错</span></span><br></pre></td></tr></table></figure></li></ol><p>若仍报错，执行以下兜底操作（重置环境依赖）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卸载 TensorFlow 和 NumPy</span></span><br><span class="line">conda uninstall tensorflow numpy -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新安装（通过 conda 自动解决依赖兼容性）</span></span><br><span class="line">conda install tensorflow=2.10 numpy=1.24.3 -y</span><br></pre></td></tr></table></figure><h3 id="关键说明"><a href="#关键说明" class="headerlink" title="关键说明"></a>关键说明</h3><ul><li>TensorFlow 2.10 是最后一个支持 Python 3.9 的稳定版本，但对 NumPy 2.x 不兼容，降级 NumPy 是唯一有效解决方式。</li><li>若后续需使用 NumPy 2.x，需升级 TensorFlow 至 2.15+（需 Python 3.10+ 支持），可通过 <code>conda create -n new-env python=3.10 &amp;&amp; conda install tensorflow=2.15</code> 创建新环境。</li></ul><h3 id="错误原因分析"><a href="#错误原因分析" class="headerlink" title="错误原因分析"></a>错误原因分析</h3><p>TensorFlow 2.10.0 对 Keras 版本有严格约束（<code>keras&lt;2.11,&gt;=2.10.0</code>），而当前环境中安装的 Keras 2.2.4 版本低于最低要求（2.10.0），导致依赖冲突。</p><h3 id="解决方案（核心：卸载旧版-Keras，使用-TensorFlow-内置版）"><a href="#解决方案（核心：卸载旧版-Keras，使用-TensorFlow-内置版）" class="headerlink" title="解决方案（核心：卸载旧版 Keras，使用 TensorFlow 内置版）"></a>解决方案（核心：卸载旧版 Keras，使用 TensorFlow 内置版）</h3><h4 id="步骤-1：卸载冲突的-Keras-2-2-4"><a href="#步骤-1：卸载冲突的-Keras-2-2-4" class="headerlink" title="步骤 1：卸载冲突的 Keras 2.2.4"></a>步骤 1：卸载冲突的 Keras 2.2.4</h4><p>在激活的 <code>test3</code> 环境中执行：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall keras -y  <span class="comment"># 强制卸载旧版 Keras</span></span><br></pre></td></tr></table></figure><h4 id="步骤-2：无需单独安装-Keras，直接使用-TensorFlow-内置版"><a href="#步骤-2：无需单独安装-Keras，直接使用-TensorFlow-内置版" class="headerlink" title="步骤 2：无需单独安装 Keras，直接使用 TensorFlow 内置版"></a>步骤 2：无需单独安装 Keras，直接使用 TensorFlow 内置版</h4><p>TensorFlow 2.10.0 已内置 <strong>Keras 2.10.0</strong>（完美兼容），无需额外安装。验证方式：</p><p>python</p><p>运行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="comment"># 直接通过 tensorflow.keras 调用 Keras API</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Dense, Conv2D</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证内置 Keras 版本</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;内置 Keras 版本：<span class="subst">&#123;tf.keras.__version__&#125;</span>&quot;</span>)  <span class="comment"># 输出 2.10.0，与 TensorFlow 兼容</span></span><br></pre></td></tr></table></figure><h4 id="步骤-3：若需显式安装兼容版-Keras（可选）"><a href="#步骤-3：若需显式安装兼容版-Keras（可选）" class="headerlink" title="步骤 3：若需显式安装兼容版 Keras（可选）"></a>步骤 3：若需显式安装兼容版 Keras（可选）</h4><p>若因科研代码依赖独立 Keras 包（非必须），可安装 2.10.0 版本（与 TensorFlow 2.10.0 严格匹配）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras==2.10.0  <span class="comment"># 安装兼容版本，避免冲突</span></span><br></pre></td></tr></table></figure><h3 id="关键说明-1"><a href="#关键说明-1" class="headerlink" title="关键说明"></a>关键说明</h3><ul><li>TensorFlow 2.0+ 已将 Keras 深度整合，优先使用 <code>tensorflow.keras</code> 可彻底规避版本冲突。</li><li>若代码中存在 <code>import keras</code> 语句，需替换为 <code>import tensorflow.keras as keras</code>，确保调用内置兼容版。</li><li>执行完上述步骤后，可通过 <code>pip list | findstr keras</code> 验证 Keras 版本为 2.10.0，冲突即可解决。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从错误信息可知，核心问题是 &lt;strong&gt;TensorFlow 2.10.0 与 NumPy 2.0.2 版本不兼容&lt;/strong&gt;（TensorFlow 2.10 基于 NumPy 1.x 编译，不支持 NumPy 2.x），同时伴随 CUDA 动态库缺失提示（非关键</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Visual Studio Code使用说明</title>
+    <link href="https://fmdblog.ccwu.cc/2025/09/03/Visual%20Studio%20Code%E4%BD%BF%E7%94%A8/"/>
+    <id>https://fmdblog.ccwu.cc/2025/09/03/Visual%20Studio%20Code%E4%BD%BF%E7%94%A8/</id>
+    <published>2025-09-03T09:07:54.000Z</published>
+    <updated>2025-11-17T08:01:36.146Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/m0_59162248/article/details/134197329">「Python入门」python环境搭建及VScode使用python运行方式_vscode运行python-CSDN博客</a></p><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装-VS-Code"><a href="#安装-VS-Code" class="headerlink" title="安装 VS Code"></a>安装 VS Code</h3><ol><li>访问 <a href="https://code.visualstudio.com/">VS Code 官方网站</a>。</li><li>根据自己的操作系统选择合适的安装包进行下载。</li><li>运行安装程序，按照提示完成安装。</li></ol><h3 id="安装-Python-扩展"><a href="#安装-Python-扩展" class="headerlink" title="安装 Python 扩展"></a>安装 Python 扩展</h3><ol><li>打开 VS Code。</li><li>点击左侧侧边栏中的扩展图标（四个方块）。</li><li>在搜索框中输入 “Python”。</li><li>选择 “Python” 扩展并点击安装按钮。</li></ol><h3 id="创建和打开-Python-项目"><a href="#创建和打开-Python-项目" class="headerlink" title="创建和打开 Python 项目"></a>创建和打开 Python 项目</h3><ol><li>创建一个新的文件夹作为项目目录。</li><li>打开 VS Code，点击 “文件” -&gt; “打开文件夹”，选择刚刚创建的项目目录。</li></ol><h3 id="配置-Python-解释器"><a href="#配置-Python-解释器" class="headerlink" title="配置 Python 解释器"></a>配置 Python 解释器</h3><ol><li>打开 VS Code 中的 Python 文件。</li><li>点击右下角的 Python 解释器版本号。</li><li>在弹出的列表中选择合适的 Python 解释器。</li></ol><h3 id="编写和运行-Python-代码"><a href="#编写和运行-Python-代码" class="headerlink" title="编写和运行 Python 代码"></a>编写和运行 Python 代码</h3><ol><li>在 VS Code 中创建一个新的 Python 文件，例如 <code>hello.py</code>。</li><li>编写以下代码：</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, World!&quot;</span>)</span><br></pre></td></tr></table></figure><ol><li>按下 <code>Ctrl + Shift + D</code> 打开调试面板，选择 “Python File” 配置。</li><li>点击绿色的播放按钮运行代码，你将在终端中看到输出结果。</li></ol><h2 id="常见实践"><a href="#常见实践" class="headerlink" title="常见实践"></a>常见实践</h2><h3 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h3><ol><li>在代码中设置断点，点击行号旁边的空白处。</li><li>按下 <code>F5</code> 启动调试。</li><li>使用调试面板中的按钮（继续、单步跳过、单步进入等）进行调试。</li></ol><h3 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a>代码格式化</h3><ol><li>安装 “Python” 扩展后，VS Code 会自动支持代码格式化。</li><li>按下 <code>Shift + Alt + F</code> 格式化当前文件的代码。</li></ol><h3 id="代码自动完成"><a href="#代码自动完成" class="headerlink" title="代码自动完成"></a>代码自动完成</h3><p>VS Code 的 Python 扩展提供了智能代码补全功能，当你输入代码时，会自动提示可能的代码片段和方法。</p><h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><ol><li>安装 “Git” 扩展。</li><li>在项目目录中初始化 Git 仓库，使用命令 <code>git init</code>。</li><li>使用 VS Code 中的源代码管理面板进行代码提交、推送等操作。</li></ol><p>定位到路径：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\HKEY_CURRENT_USER\AppEvents\EventLabels\WindowsLogon</span><br></pre></td></tr></table></figure><p>确保右侧 ExcludeFromCPL 的值为 0以在主题默认声音设置显示该事件该选项。</p><span id="more"></span><center>---*本文结束*---]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/m0_59162248/article/details/134197329&quot;&gt;「Python入门」python环境搭建及VScode使用python运行方式_vscode运行python-CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;使用方法&quot;&gt;&lt;a href=&quot;#使用方法&quot; class=&quot;headerlink&quot; title=&quot;使用方法&quot;&gt;&lt;/a&gt;使用方法&lt;/h2&gt;&lt;h3 id=&quot;安装-VS-Code&quot;&gt;&lt;a href=&quot;#安装-VS-Code&quot; class=&quot;headerlink&quot; title=&quot;安装 VS Code&quot;&gt;&lt;/a&gt;安装 VS Code&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;访问 &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;VS Code 官方网站&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;根据自己的操作系统选择合适的安装包进行下载。&lt;/li&gt;
+&lt;li&gt;运行安装程序，按照提示完成安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;安装-Python-扩展&quot;&gt;&lt;a href=&quot;#安装-Python-扩展&quot; class=&quot;headerlink&quot; title=&quot;安装 Python 扩展&quot;&gt;&lt;/a&gt;安装 Python 扩展&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;打开 VS Code。&lt;/li&gt;
+&lt;li&gt;点击左侧侧边栏中的扩展图标（四个方块）。&lt;/li&gt;
+&lt;li&gt;在搜索框中输入 “Python”。&lt;/li&gt;
+&lt;li&gt;选择 “Python” 扩展并点击安装按钮。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;创建和打开-Python-项目&quot;&gt;&lt;a href=&quot;#创建和打开-Python-项目&quot; class=&quot;headerlink&quot; title=&quot;创建和打开 Python 项目&quot;&gt;&lt;/a&gt;创建和打开 Python 项目&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;创建一个新的文件夹作为项目目录。&lt;/li&gt;
+&lt;li&gt;打开 VS Code，点击 “文件” -&amp;gt; “打开文件夹”，选择刚刚创建的项目目录。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;配置-Python-解释器&quot;&gt;&lt;a href=&quot;#配置-Python-解释器&quot; class=&quot;headerlink&quot; title=&quot;配置 Python 解释器&quot;&gt;&lt;/a&gt;配置 Python 解释器&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;打开 VS Code 中的 Python 文件。&lt;/li&gt;
+&lt;li&gt;点击右下角的 Python 解释器版本号。&lt;/li&gt;
+&lt;li&gt;在弹出的列表中选择合适的 Python 解释器。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;编写和运行-Python-代码&quot;&gt;&lt;a href=&quot;#编写和运行-Python-代码&quot; class=&quot;headerlink&quot; title=&quot;编写和运行 Python 代码&quot;&gt;&lt;/a&gt;编写和运行 Python 代码&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在 VS Code 中创建一个新的 Python 文件，例如 &lt;code&gt;hello.py&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;编写以下代码：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol&gt;
+&lt;li&gt;按下 &lt;code&gt;Ctrl + Shift + D&lt;/code&gt; 打开调试面板，选择 “Python File” 配置。&lt;/li&gt;
+&lt;li&gt;点击绿色的播放按钮运行代码，你将在终端中看到输出结果。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;常见实践&quot;&gt;&lt;a href=&quot;#常见实践&quot; class=&quot;headerlink&quot; title=&quot;常见实践&quot;&gt;&lt;/a&gt;常见实践&lt;/h2&gt;&lt;h3 id=&quot;代码调试&quot;&gt;&lt;a href=&quot;#代码调试&quot; class=&quot;headerlink&quot; title=&quot;代码调试&quot;&gt;&lt;/a&gt;代码调试&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在代码中设置断点，点击行号旁边的空白处。&lt;/li&gt;
+&lt;li&gt;按下 &lt;code&gt;F5&lt;/code&gt; 启动调试。&lt;/li&gt;
+&lt;li&gt;使用调试面板中的按钮（继续、单步跳过、单步进入等）进行调试。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;代码格式化&quot;&gt;&lt;a href=&quot;#代码格式化&quot; class=&quot;headerlink&quot; title=&quot;代码格式化&quot;&gt;&lt;/a&gt;代码格式化&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 “Python” 扩展后，VS Code 会自动支持代码格式化。&lt;/li&gt;
+&lt;li&gt;按下 &lt;code&gt;Shift + Alt + F&lt;/code&gt; 格式化当前文件的代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;代码自动完成&quot;&gt;&lt;a href=&quot;#代码自动完成&quot; class=&quot;headerlink&quot; title=&quot;代码自动完成&quot;&gt;&lt;/a&gt;代码自动完成&lt;/h3&gt;&lt;p&gt;VS Code 的 Python 扩展提供了智能代码补全功能，当你输入代码时，会自动提示可能的代码片段和方法。&lt;/p&gt;
+&lt;h3 id=&quot;版本控制&quot;&gt;&lt;a href=&quot;#版本控制&quot; class=&quot;headerlink&quot; title=&quot;版本控制&quot;&gt;&lt;/a&gt;版本控制&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;安装 “Git” 扩展。&lt;/li&gt;
+&lt;li&gt;在项目目录中初始化 Git 仓库，使用命令 &lt;code&gt;git init&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;使用 VS Code 中的源代码管理面板进行代码提交、推送等操作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;定位到路径：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;\HKEY_CURRENT_USER\AppEvents\EventLabels\WindowsLogon&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;确保右侧 ExcludeFromCPL 的值为 0以在主题默认声音设置显示该事件该选项。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Windows11设置开机音乐</title>
+    <link href="https://fmdblog.ccwu.cc/2025/08/20/Windows11%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E9%9F%B3%E4%B9%90/"/>
+    <id>https://fmdblog.ccwu.cc/2025/08/20/Windows11%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E9%9F%B3%E4%B9%90/</id>
+    <published>2025-08-20T07:07:54.000Z</published>
+    <updated>2025-08-20T07:12:52.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>定位到路径：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\HKEY_CURRENT_USER\AppEvents\EventLabels\WindowsLogon</span><br></pre></td></tr></table></figure><p>确保右侧 ExcludeFromCPL 的值为 0以在主题默认声音设置显示该事件该选项。</p><span id="more"></span><p>123图床</p><center>---*本文结束*---]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;定位到路径：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;\HKEY_CURRENT_USER\AppEvents\EventLabels\WindowsLogon&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;确保右侧 ExcludeFromCPL 的值为 0以在主题默认声音设置显示该事件该选项。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Windows中PDF TXT Excel Word PPT等Office文件在预览窗格无法预览的终级解决方法大全</title>
-    <link href="https://fvccd.github.io/2025/07/24/Office%E6%96%87%E4%BB%B6%E5%9C%A8%E9%A2%84%E8%A7%88%E7%AA%97%E6%A0%BC%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88/"/>
-    <id>https://fvccd.github.io/2025/07/24/Office%E6%96%87%E4%BB%B6%E5%9C%A8%E9%A2%84%E8%A7%88%E7%AA%97%E6%A0%BC%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88/</id>
+    <link href="https://fmdblog.ccwu.cc/2025/07/24/Office%E6%96%87%E4%BB%B6%E5%9C%A8%E9%A2%84%E8%A7%88%E7%AA%97%E6%A0%BC%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88/"/>
+    <id>https://fmdblog.ccwu.cc/2025/07/24/Office%E6%96%87%E4%BB%B6%E5%9C%A8%E9%A2%84%E8%A7%88%E7%AA%97%E6%A0%BC%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88/</id>
     <published>2025-07-24T07:10:22.000Z</published>
     <updated>2025-07-24T07:12:19.956Z</updated>
     
@@ -36,8 +159,8 @@
   
   <entry>
     <title>软件bug</title>
-    <link href="https://fvccd.github.io/2025/04/21/%E8%BD%AF%E4%BB%B6bug/"/>
-    <id>https://fvccd.github.io/2025/04/21/%E8%BD%AF%E4%BB%B6bug/</id>
+    <link href="https://fmdblog.ccwu.cc/2025/04/21/%E8%BD%AF%E4%BB%B6bug/"/>
+    <id>https://fmdblog.ccwu.cc/2025/04/21/%E8%BD%AF%E4%BB%B6bug/</id>
     <published>2025-04-21T08:19:04.000Z</published>
     <updated>2025-04-21T08:51:03.029Z</updated>
     
@@ -51,19 +174,19 @@
     
     
     
-    <category term="软件" scheme="https://fvccd.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="软件" scheme="https://fmdblog.ccwu.cc/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="软件" scheme="https://fvccd.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="软件" scheme="https://fmdblog.ccwu.cc/tags/%E8%BD%AF%E4%BB%B6/"/>
     
-    <category term="bug" scheme="https://fvccd.github.io/tags/bug/"/>
+    <category term="bug" scheme="https://fmdblog.ccwu.cc/tags/bug/"/>
     
   </entry>
   
   <entry>
     <title>scr文件与cad软件冲突解决方法</title>
-    <link href="https://fvccd.github.io/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>https://fvccd.github.io/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
+    <link href="https://fmdblog.ccwu.cc/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>https://fmdblog.ccwu.cc/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
     <published>2025-04-14T13:51:10.000Z</published>
     <updated>2025-04-21T08:27:39.142Z</updated>
     
@@ -74,19 +197,19 @@
     
     
     
-    <category term="软件" scheme="https://fvccd.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="软件" scheme="https://fmdblog.ccwu.cc/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="软件" scheme="https://fvccd.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="软件" scheme="https://fmdblog.ccwu.cc/tags/%E8%BD%AF%E4%BB%B6/"/>
     
-    <category term="scr" scheme="https://fvccd.github.io/tags/scr/"/>
+    <category term="scr" scheme="https://fmdblog.ccwu.cc/tags/scr/"/>
     
   </entry>
   
   <entry>
     <title>当“熊猫”遇见“白头鹰”：中美关系的三个意外真相</title>
-    <link href="https://fvccd.github.io/2025/02/01/%E5%BD%93%E2%80%9C%E7%86%8A%E7%8C%AB%E2%80%9D%E9%81%87%E8%A7%81%E2%80%9C%E7%99%BD%E5%A4%B4%E9%B9%B0%E2%80%9D%EF%BC%9A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E7%9A%84%E4%B8%89%E4%B8%AA%E6%84%8F%E5%A4%96%E7%9C%9F%E7%9B%B8/"/>
-    <id>https://fvccd.github.io/2025/02/01/%E5%BD%93%E2%80%9C%E7%86%8A%E7%8C%AB%E2%80%9D%E9%81%87%E8%A7%81%E2%80%9C%E7%99%BD%E5%A4%B4%E9%B9%B0%E2%80%9D%EF%BC%9A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E7%9A%84%E4%B8%89%E4%B8%AA%E6%84%8F%E5%A4%96%E7%9C%9F%E7%9B%B8/</id>
+    <link href="https://fmdblog.ccwu.cc/2025/02/01/%E5%BD%93%E2%80%9C%E7%86%8A%E7%8C%AB%E2%80%9D%E9%81%87%E8%A7%81%E2%80%9C%E7%99%BD%E5%A4%B4%E9%B9%B0%E2%80%9D%EF%BC%9A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E7%9A%84%E4%B8%89%E4%B8%AA%E6%84%8F%E5%A4%96%E7%9C%9F%E7%9B%B8/"/>
+    <id>https://fmdblog.ccwu.cc/2025/02/01/%E5%BD%93%E2%80%9C%E7%86%8A%E7%8C%AB%E2%80%9D%E9%81%87%E8%A7%81%E2%80%9C%E7%99%BD%E5%A4%B4%E9%B9%B0%E2%80%9D%EF%BC%9A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E7%9A%84%E4%B8%89%E4%B8%AA%E6%84%8F%E5%A4%96%E7%9C%9F%E7%9B%B8/</id>
     <published>2025-02-01T02:04:23.000Z</published>
     <updated>2025-02-01T02:11:36.560Z</updated>
     
@@ -97,15 +220,15 @@
     
     
     
-    <category term="国际" scheme="https://fvccd.github.io/categories/%E5%9B%BD%E9%99%85/"/>
+    <category term="国际" scheme="https://fmdblog.ccwu.cc/categories/%E5%9B%BD%E9%99%85/"/>
     
     
   </entry>
   
   <entry>
     <title>中美关系：竞争不可避免，冲突可以避免</title>
-    <link href="https://fvccd.github.io/2025/01/20/%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%8C%E5%86%B2%E7%AA%81%E5%8F%AF%E4%BB%A5%E9%81%BF%E5%85%8D/"/>
-    <id>https://fvccd.github.io/2025/01/20/%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%8C%E5%86%B2%E7%AA%81%E5%8F%AF%E4%BB%A5%E9%81%BF%E5%85%8D/</id>
+    <link href="https://fmdblog.ccwu.cc/2025/01/20/%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%8C%E5%86%B2%E7%AA%81%E5%8F%AF%E4%BB%A5%E9%81%BF%E5%85%8D/"/>
+    <id>https://fmdblog.ccwu.cc/2025/01/20/%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%8C%E5%86%B2%E7%AA%81%E5%8F%AF%E4%BB%A5%E9%81%BF%E5%85%8D/</id>
     <published>2025-01-20T11:14:20.000Z</published>
     <updated>2025-02-01T02:12:56.948Z</updated>
     
@@ -116,15 +239,15 @@
     
     
     
-    <category term="国际" scheme="https://fvccd.github.io/categories/%E5%9B%BD%E9%99%85/"/>
+    <category term="国际" scheme="https://fmdblog.ccwu.cc/categories/%E5%9B%BD%E9%99%85/"/>
     
     
   </entry>
   
   <entry>
     <title>chatgpt&#39;s thinks</title>
-    <link href="https://fvccd.github.io/2023/04/24/ai/"/>
-    <id>https://fvccd.github.io/2023/04/24/ai/</id>
+    <link href="https://fmdblog.ccwu.cc/2023/04/24/ai/"/>
+    <id>https://fmdblog.ccwu.cc/2023/04/24/ai/</id>
     <published>2023-04-24T14:46:37.000Z</published>
     <updated>2023-04-25T11:23:57.091Z</updated>
     
@@ -135,15 +258,15 @@
     
     
     
-    <category term="fusion" scheme="https://fvccd.github.io/categories/fusion/"/>
+    <category term="fusion" scheme="https://fmdblog.ccwu.cc/categories/fusion/"/>
     
     
   </entry>
   
   <entry>
     <title>利用fusion的apk封装</title>
-    <link href="https://fvccd.github.io/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/"/>
-    <id>https://fvccd.github.io/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/</id>
+    <link href="https://fmdblog.ccwu.cc/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/"/>
+    <id>https://fmdblog.ccwu.cc/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/</id>
     <published>2023-03-03T02:25:49.000Z</published>
     <updated>2023-04-24T14:43:33.249Z</updated>
     
@@ -154,15 +277,15 @@
     
     
     
-    <category term="fusion" scheme="https://fvccd.github.io/categories/fusion/"/>
+    <category term="fusion" scheme="https://fmdblog.ccwu.cc/categories/fusion/"/>
     
     
   </entry>
   
   <entry>
     <title>设置新版本next主题的404页面</title>
-    <link href="https://fvccd.github.io/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/"/>
-    <id>https://fvccd.github.io/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/</id>
+    <link href="https://fmdblog.ccwu.cc/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/"/>
+    <id>https://fmdblog.ccwu.cc/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/</id>
     <published>2023-03-02T06:09:47.000Z</published>
     <updated>2023-03-18T15:15:54.552Z</updated>
     
@@ -173,17 +296,17 @@
     
     
     
-    <category term="404" scheme="https://fvccd.github.io/categories/404/"/>
+    <category term="404" scheme="https://fmdblog.ccwu.cc/categories/404/"/>
     
-    <category term="next" scheme="https://fvccd.github.io/categories/404/next/"/>
+    <category term="next" scheme="https://fmdblog.ccwu.cc/categories/404/next/"/>
     
     
   </entry>
   
   <entry>
     <title>鸡汤</title>
-    <link href="https://fvccd.github.io/2023/02/28/%E9%B8%A1%E6%B1%A4/"/>
-    <id>https://fvccd.github.io/2023/02/28/%E9%B8%A1%E6%B1%A4/</id>
+    <link href="https://fmdblog.ccwu.cc/2023/02/28/%E9%B8%A1%E6%B1%A4/"/>
+    <id>https://fmdblog.ccwu.cc/2023/02/28/%E9%B8%A1%E6%B1%A4/</id>
     <published>2023-02-28T11:01:26.000Z</published>
     <updated>2023-03-02T07:10:34.844Z</updated>
     
@@ -194,23 +317,23 @@
     
     
     
-    <category term="励志" scheme="https://fvccd.github.io/categories/%E5%8A%B1%E5%BF%97/"/>
+    <category term="励志" scheme="https://fmdblog.ccwu.cc/categories/%E5%8A%B1%E5%BF%97/"/>
     
     
-    <category term="hexo" scheme="https://fvccd.github.io/tags/hexo/"/>
+    <category term="hexo" scheme="https://fmdblog.ccwu.cc/tags/hexo/"/>
     
-    <category term="励志" scheme="https://fvccd.github.io/tags/%E5%8A%B1%E5%BF%97/"/>
+    <category term="励志" scheme="https://fmdblog.ccwu.cc/tags/%E5%8A%B1%E5%BF%97/"/>
     
   </entry>
   
   <entry>
     <title>思考</title>
-    <link href="https://fvccd.github.io/2023/02/26/Fudong/"/>
-    <id>https://fvccd.github.io/2023/02/26/Fudong/</id>
+    <link href="https://fmdblog.ccwu.cc/2023/02/26/Fudong/"/>
+    <id>https://fmdblog.ccwu.cc/2023/02/26/Fudong/</id>
     <published>2023-02-26T02:21:05.000Z</published>
-    <updated>2025-04-14T13:58:50.207Z</updated>
+    <updated>2025-09-03T08:40:42.979Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome my blog!</p><h2 id="这是我的第一篇文章"><a href="#这是我的第一篇文章" class="headerlink" title="这是我的第一篇文章"></a>这是我的第一篇文章</h2><p>今天很开心！  </p><span id="more"></span><hr><p><u>难道不是吗?</u></p><hr><p>第一项：</p><ul><li><p><strong>1</strong>.<strong>遭遇</strong></p></li><li><p><strong>2</strong>.<strong>经历</strong></p></li></ul><p><code>人生</code>很难，我是<a href="https://www.runoob.com/">菜鸟</a></p><p> <strong>这是极为特殊的历史转折期，物质文明发展到这一步注定了精神（信仰）的缺失，灵魂空虚、物欲横流，人们的精神堕入虚无主义，只能沉浸在金钱物质欲望和肉体感官刺激中，有各种不安和痛苦。多少年轻人也失去了纯真的理想和纯美的爱情。这绝不仅是我们这个星球上的生命的悲剧，而是任何一种生命在文明发展进程中注定的悲哀。生命的意义到底是什么？我们到底该怎样活着？——《重大人生启示录前言》</strong></p><p> <strong>人生就是由欲望不满足而痛苦和满足之后无趣这两者所构成。你满心期待着未来的某个快乐，未必理智认知到了它是短暂的而不会持久。人的一生的本质是痛苦，快乐只是昙花一现。</strong></p><p><strong>我们总害怕死亡，而如果人真的可以永远活着，我想人们同样会像害怕死亡一样害怕永恒，或厌倦永恒。人们总爱追问人生的意义，其实人生本无所谓意义，因为存在先于<br>质，本质之前的存在是禁绝思考的。人生的无意义赋予了人的自由，倘若人生有一个注定的意义，那么人人都如同一具机器。</strong></p><p><strong>我们诞生在这个世界是被迫的，这是最糟糕的事实。一种理想主义的人生观是：生命的长度无需受制于肉体自然的衰败，它应该是受你的心灵、你的快乐的需要而去自主选<br>择。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---</center>----------<p>&lt;（下面皆为测试）&gt;</p><ul><li><p><input checked="" disabled="" type="checkbox">  这个链接用 1 作为网址变量 <a href="http://www.google.com/">Google</a></p></li><li><p><input disabled="" type="checkbox">  这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/">Runoob</a></p></li></ul><p><del>然后在文档的结尾为变量赋值</del>（网址）</p><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">this text is blue</span></p><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p><p><img src="https://pic.imgdb.cn/item/63fb5d21f144a01007647d0f.jpg"></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome my blog!</p><h2 id="这是我的第一篇文章"><a href="#这是我的第一篇文章" class="headerlink" title="这是我的第一篇文章"></a>这是我的第一篇文章</h2><p>今天很开心！  </p><span id="more"></span><hr><p><u>难道不是吗?</u></p><hr><p>第一项：</p><ul><li><p><strong>1</strong>.<strong>遭遇</strong></p></li><li><p><strong>2</strong>.<strong>经历</strong></p></li></ul><p><code>人生</code>很难，我是<a href="https://www.runoob.com/">菜鸟</a></p><p> <strong>这是极为特殊的历史转折期，物质文明发展到这一步注定了精神（信仰）的缺失，灵魂空虚、物欲横流，人们的精神堕入虚无主义，只能沉浸在金钱物质欲望和肉体感官刺激中，有各种不安和痛苦。多少年轻人也失去了纯真的理想和纯美的爱情。这绝不仅是我们这个星球上的生命的悲剧，而是任何一种生命在文明发展进程中注定的悲哀。生命的意义到底是什么？我们到底该怎样活着？——《重大人生启示录前言》</strong></p><p> <strong>人生就是由欲望不满足而痛苦和满足之后无趣这两者所构成。你满心期待着未来的某个快乐，未必理智认知到了它是短暂的而不会持久。人的一生的本质是痛苦，快乐只是昙花一现。</strong></p><p><strong>我们总害怕死亡，而如果人真的可以永远活着，我想人们同样会像害怕死亡一样害怕永恒，或厌倦永恒。人们总爱追问人生的意义，其实人生本无所谓意义，因为存在先于<br>质，本质之前的存在是禁绝思考的。人生的无意义赋予了人的自由，倘若人生有一个注定的意义，那么人人都如同一具机器。</strong></p><p><strong>我们诞生在这个世界是被迫的，这是最糟糕的事实。一种理想主义的人生观是：生命的长度无需受制于肉体自然的衰败，它应该是受你的心灵、你的快乐的需要而去自主选<br>择。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---</center>----------<p>&lt;（下面皆为测试）&gt;</p><ul><li><p><input checked="" disabled="" type="checkbox">  这个链接用 1 作为网址变量 <a href="http://www.google.com/">Google</a></p></li><li><p><input disabled="" type="checkbox">  这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/">Runoob</a></p></li></ul><p><del>然后在文档的结尾为变量赋值</del>（网址）</p><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">this text is blue</span></p><p><img src="https://pic.imgdb.cn/item/63fb5d21f144a01007647d0f.jpg"></p><h2 id="2025-9-3"><a href="#2025-9-3" class="headerlink" title="2025.9.3"></a>2025.9.3</h2><h3 id="大佛宫颈抹i给"><a href="#大佛宫颈抹i给" class="headerlink" title="大佛宫颈抹i给"></a>大佛宫颈抹i给</h3><ul><li>你发</li></ul>]]></content>
     
     
     <summary type="html">&lt;p&gt;Welcome my blog!&lt;/p&gt;
@@ -218,12 +341,12 @@
     
     
     
-    <category term="工具" scheme="https://fvccd.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://fmdblog.ccwu.cc/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="工具" scheme="https://fvccd.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://fmdblog.ccwu.cc/tags/%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="hexo" scheme="https://fvccd.github.io/tags/hexo/"/>
+    <category term="hexo" scheme="https://fmdblog.ccwu.cc/tags/hexo/"/>
     
   </entry>
   
