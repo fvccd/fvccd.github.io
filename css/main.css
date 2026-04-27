@@ -3122,3 +3122,23 @@ pre,
 .post-body pre {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
+@media (min-width: 992px) {
+  .main {
+    align-items: flex-start;
+  }
+  .column {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+    align-self: flex-start !important;
+  }
+  .sidebar,
+  .sidebar-inner {
+    position: static !important;
+    top: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
