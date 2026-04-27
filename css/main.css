@@ -3150,13 +3150,29 @@ pre,
   margin-bottom: 8px !important;
 }
 .posts-expand .post-title {
-  margin: 0 0 6px !important;
-  font-size: 1.3em !important;
+  margin: 0 0 8px !important;
+  font-size: 1.55em !important;
   line-height: 1.35 !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.4px;
 }
 .posts-expand .post-title-link {
-  font-weight: 700 !important;
+  font-weight: 800 !important;
+  color: #666 !important;
+  display: inline-block;
+  transition: all 0.25s ease;
+}
+.posts-expand .post-title-link:hover {
+  color: #222 !important;
+  transform: translateY(-2px) scale(1.03);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.index .post-block:first-child .post-title {
+  font-size: 1.85em !important;
+  font-weight: 900 !important;
+}
+.index .post-block:first-child .post-title-link {
+  animation: titleFadeIn 0.8s ease both;
 }
 .posts-expand .post-meta {
   margin: 3px 0 10px !important;
@@ -3179,4 +3195,17 @@ pre,
 .post-eof {
   margin: 8px auto !important;
   width: 6% !important;
+}
+.index .post-block:first-child .post-meta {
+  display: none !important;
+}
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
