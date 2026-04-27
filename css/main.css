@@ -2904,8 +2904,7 @@ code {
     font-size: 13px;
   }
 }
-#去掉了外部字体，指定系统字体,
-body,
+#去掉了外部字体，指定系统字体body,
 input,
 button,
 select,
