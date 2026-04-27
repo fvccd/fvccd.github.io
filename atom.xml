@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>明東&amp;Blog</title>
+  <title>MDong&amp;Blog</title>
   
   <subtitle>I know not fate, yet toil for it day and night.</subtitle>
   <link href="https://fmdblog.ccwu.cc/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://fmdblog.ccwu.cc/</id>
   
   <author>
-    <name>MDong</name>
+    <name>付明東</name>
     
   </author>
   
