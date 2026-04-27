@@ -3142,3 +3142,41 @@ pre,
     overflow: visible !important;
   }
 }
+.posts-expand .post-block {
+  margin-bottom: 6px !important;
+  padding: 16px 42px !important;
+}
+.posts-expand .post-header {
+  margin-bottom: 8px !important;
+}
+.posts-expand .post-title {
+  margin: 0 0 6px !important;
+  font-size: 1.3em !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+}
+.posts-expand .post-title-link {
+  font-weight: 700 !important;
+}
+.posts-expand .post-meta {
+  margin: 3px 0 10px !important;
+  font-size: 0.8em !important;
+}
+.posts-expand .post-body {
+  margin-top: 6px !important;
+  line-height: 1.65 !important;
+}
+.posts-expand .post-body p {
+  margin: 0 0 6px !important;
+}
+.posts-expand .post-button {
+  margin-top: 8px !important;
+}
+.posts-expand .post-button .btn {
+  padding: 2px 9px !important;
+  font-size: 0.82em !important;
+}
+.post-eof {
+  margin: 8px auto !important;
+  width: 6% !important;
+}
