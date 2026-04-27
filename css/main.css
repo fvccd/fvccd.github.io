@@ -3122,3 +3122,8 @@ pre,
 .post-body pre {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
+.sidebar {
+  position: sticky;
+  top: 12px;
+  align-self: flex-start;
+}

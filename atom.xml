@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>明東&amp;博客</title>
+  <title>明東&amp;Blog</title>
   
-  <subtitle>我不认识命运，却为它日夜工作。</subtitle>
+  <subtitle>I know not fate, yet toil for it day and night.</subtitle>
   <link href="https://fmdblog.ccwu.cc/atom.xml" rel="self"/>
   
   <link href="https://fmdblog.ccwu.cc/"/>
