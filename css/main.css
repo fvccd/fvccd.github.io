@@ -3342,7 +3342,7 @@ pre,
   padding: 58px 48px;
   border-radius: 22px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(20,40,80,0.88), rgba(20,130,180,0.68)), url("/images/logsmall.png");
+  background: linear-gradient(135deg, rgba(20,40,80,0.88), rgba(20,130,180,0.68)), url("/images/wallhaven-y8d9z7.jpg");
   background-size: cover;
   background-position: center;
   box-shadow: 0 16px 40px rgba(0,0,0,0.08);
@@ -3555,6 +3555,10 @@ pre,
     margin-top: 4px;
     text-align: left;
   }
+}
+.about-card p,
+.about-card blockquote {
+  text-indent: 2em;
 }
 @keyframes titleFadeIn {
   from {
