@@ -2877,48 +2877,102 @@ span.exturl:hover {
   margin-top: 40px;
 }
 .category-all-page {
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-  background-color: #797d7f;
-  padding: 20px 30px 60px 30px;
-  border-radius: 25px 25px 25px 25px;
+  background: rgba(255,255,255,0.82);
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+  padding: 32px 38px 36px;
+  margin-top: 12px;
+  backdrop-filter: blur(8px);
 }
 .category-all-title {
-  font-family: Impact;
-  font-size: 24px;
-  color: #0ff;
+  margin: 0 0 26px 0;
+  text-align: center;
+  font-size: 1.55em;
+  font-weight: 800;
+  color: #555;
+  letter-spacing: 1px;
 }
+.category-all,
 .category-list {
-  overflow: auto;
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: center;
+  gap: 14px 16px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
 }
-.category-list li {
-  height: 100%;
-  float: left;
-  border-right: 3px solid #222;
-  padding: 0 20px;
-}
-.category-all ul li {
+.category-list li,
+.category-list-item {
   list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-right: none !important;
+  float: none !important;
 }
-.category-list li:last-child {
-  border-right: none;
+/* 分类胶囊 */
+.category-list li a,
+.category-list-item a,
+.category-list-link {
+  display: inline-block !important;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: rgba(245,248,252,0.95);
+  color: #555 !important;
+  font-size: 0.96em;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  border: 1px solid rgba(90,180,220,0.18);
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.045);
+  white-space: nowrap;
 }
-.category-list li a {
-  font-size: 16px;
-  text-decoration: none;
-  color: #7fff00;
-  font-family: Helvetica, Verdana, sans-serif;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+.category-list li a:hover,
+.category-list-item a:hover,
+.category-list-link:hover {
+  background: #eaf4ff;
+  color: #409eff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(64,158,255,0.16);
+  border-color: rgba(64,158,255,0.28);
 }
-.category-list li a:hover {
-  color: #000;
+/* 关键：隐藏分类数量，避免错位 */
+.category-list-count {
+  display: none !important;
 }
-.category-list li.active a {
-  font-weight: bold;
-  color: #000;
+/* 去掉主题默认小点/伪元素 */
+.category-all-page .category-list-item::before,
+.category-all-page .category-list-item::after,
+.category-all-page .category-list-link::before,
+.category-all-page .category-list-link::after,
+.category-all-page .category-list li::before,
+.category-all-page .category-list li::after {
+  display: none !important;
+  content: none !important;
+}
+@media (max-width: 767px) {
+  .category-all-page {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+  .category-all-title {
+    font-size: 1.35em;
+    margin-bottom: 20px;
+  }
+  .category-all,
+  .category-list {
+    gap: 12px;
+  }
+  .category-list li a,
+  .category-list-item a,
+  .category-list-link {
+    font-size: 0.88em;
+    padding: 8px 15px;
+  }
 }
 .post-button .btn {
   color: #555 !important;
