@@ -3614,6 +3614,33 @@ pre,
 .about-card blockquote {
   text-indent: 2em;
 }
+.footer {
+  text-align: center !important;
+}
+.footer-inner {
+  margin: 0 auto !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  max-width: 100% !important;
+}
+.footer-inner > div,
+.footer-inner > span,
+.footer-inner .copyright,
+.footer-inner .powered-by,
+.footer-inner .theme-info,
+.footer-inner .busuanzi-count,
+.footer-inner .site-count,
+.footer-inner .footer-custom {
+  width: 100%;
+  text-align: center !important;
+}
+.footer-inner a,
+.footer-inner span {
+  text-align: center !important;
+}
 @keyframes titleFadeIn {
   from {
     opacity: 0;
