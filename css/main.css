@@ -3615,27 +3615,38 @@ pre,
   text-indent: 2em;
 }
 .footer {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
   text-align: center !important;
+  clear: both !important;
 }
 .footer-inner {
+  width: 100% !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   text-align: center !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  max-width: 100% !important;
 }
 .footer-inner > div,
 .footer-inner > span,
+.footer-inner p,
 .footer-inner .copyright,
 .footer-inner .powered-by,
 .footer-inner .theme-info,
 .footer-inner .busuanzi-count,
 .footer-inner .site-count,
 .footer-inner .footer-custom {
-  width: 100%;
+  width: 100% !important;
   text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 .footer-inner a,
 .footer-inner span {
