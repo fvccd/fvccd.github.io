@@ -42,15 +42,19 @@
     <link href="https://fmdblog.ccwu.cc/2025/11/17/windows%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%EF%BC%8C%E8%AF%BB%E5%8F%96%E6%8F%8F%E8%BF%B0%E5%A4%B1%E8%B4%A5%EF%BC%8C%E9%98%B2%E7%81%AB%E5%A2%99%E6%97%A0%E6%B3%95%E5%85%B3%E9%97%AD/"/>
     <id>https://fmdblog.ccwu.cc/2025/11/17/windows%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%EF%BC%8C%E8%AF%BB%E5%8F%96%E6%8F%8F%E8%BF%B0%E5%A4%B1%E8%B4%A5%EF%BC%8C%E9%98%B2%E7%81%AB%E5%A2%99%E6%97%A0%E6%B3%95%E5%85%B3%E9%97%AD/</id>
     <published>2025-11-17T07:57:07.000Z</published>
-    <updated>2025-11-17T08:02:01.764Z</updated>
+    <updated>2026-06-04T12:13:50.014Z</updated>
     
     <content type="html"><![CDATA[<p>疑是ABBYY的问题，一个叫sandyd的人封装的破解版卸载程序有问题导致。</p><span id="more"></span><p>问题解决，指南：Win+R，输入regedit，在注册表里找到这个路径HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\MUI\StringCacheSettings 。如果没有StringCacheSettings文件，右键创建一个命名StringCacheSettings。然后在右侧右键新建选择32位值，命名StringCacheGeneration，再选中StringCacheSettings，右键修改，改为10（数值随意），这个不清楚要不要改，我改了，和帖子里面一模一样，重启，就好了</p><center>---*本文结束*---]]></content>
     
     
-    <summary type="html">&lt;p&gt;疑是ABBYY的问题，一个叫sandyd的人封装的破解版卸载程序有问题导致。&lt;/p&gt;</summary>
+    <summary type="html">windows服务报错，读取描述失败，防火墙无法关闭</summary>
     
     
     
+    <category term="博客" scheme="https://fmdblog.ccwu.cc/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -59,15 +63,19 @@
     <link href="https://fmdblog.ccwu.cc/2025/10/19/conda%E5%88%9B%E5%BB%BAtensorflow%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/"/>
     <id>https://fmdblog.ccwu.cc/2025/10/19/conda%E5%88%9B%E5%BB%BAtensorflow%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98/</id>
     <published>2025-10-19T13:41:10.000Z</published>
-    <updated>2026-04-27T09:43:43.937Z</updated>
+    <updated>2026-06-04T12:13:49.588Z</updated>
     
     <content type="html"><![CDATA[<p>从错误信息可知，核心问题是 <strong>TensorFlow 2.10.0 与 NumPy 2.0.2 版本不兼容</strong>（TensorFlow 2.10 基于 NumPy 1.x 编译，不支持 NumPy 2.x），同时伴随 CUDA 动态库缺失提示（非关键，仅影响 GPU 加速）。以下是分步解决方案：</p><span id="more"></span><h3 id="一、核心解决：降级-NumPy-至-1-x-版本"><a href="#一、核心解决：降级-NumPy-至-1-x-版本" class="headerlink" title="一、核心解决：降级 NumPy 至 1.x 版本"></a>一、核心解决：降级 NumPy 至 1.x 版本</h3><ol><li><p>确保已激活 <code>test3</code> 环境（命令行提示符显示 <code>(test3)</code>）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate test3</span><br></pre></td></tr></table></figure><p>卸载当前 NumPy 2.0.2，安装兼容的 1.x 版本（推荐 1.24.3，与 TensorFlow 2.10 完美匹配）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先卸载现有 NumPy</span></span><br><span class="line">pip uninstall numpy -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装兼容版本（指定 &lt;2 确保是 1.x 系列）</span></span><br><span class="line">pip install numpy==1.24.3</span><br></pre></td></tr></table></figure><p>验证 NumPy 版本：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list | findstr numpy</span><br></pre></td></tr></table></figure><p>输出应显示 <code>numpy 1.24.3</code>（或其他 1.x 版本）。</p></li></ol><h3 id="二、解决-CUDA-动态库缺失警告（可选，不影响-CPU-运行）"><a href="#二、解决-CUDA-动态库缺失警告（可选，不影响-CPU-运行）" class="headerlink" title="二、解决 CUDA 动态库缺失警告（可选，不影响 CPU 运行）"></a>二、解决 CUDA 动态库缺失警告（可选，不影响 CPU 运行）</h3><p>错误中 <code>cudart64_110.dll not found</code> 是因为未安装 CUDA Toolkit，仅影响 GPU 加速。若无需 GPU 运行，可忽略该警告；若需 GPU 支持，按以下步骤安装：</p><ol><li><p>TensorFlow 2.10 需匹配</p><p>CUDA 11.2 + cuDNN 8.1</p><p>（版本必须严格对应）：</p><ul><li>下载 CUDA 11.2：<a href="https://developer.nvidia.com/cuda-11.2.0-download-archive">https://developer.nvidia.com/cuda-11.2.0-download-archive</a></li><li>下载 cuDNN 8.1：<a href="https://developer.nvidia.com/cudnn-8.1.0-cuda11.2%EF%BC%88%E9%9C%80%E6%B3%A8%E5%86%8C">https://developer.nvidia.com/cudnn-8.1.0-cuda11.2（需注册</a> NVIDIA 账号）</li></ul></li><li><p>安装 CUDA 后，将 cuDNN 解压后的 <code>bin</code>、<code>include</code>、<code>lib</code> 文件夹复制到 CUDA 安装目录（默认 <code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2</code>）。</p></li><li><p>重启命令行，重新激活环境并运行代码，GPU 即可正常使用。</p></li></ol><h3 id="三、验证解决方案"><a href="#三、验证解决方案" class="headerlink" title="三、验证解决方案"></a>三、验证解决方案</h3><ol><li><p>在 <code>test3</code> 环境中启动 Python 终端：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure></li><li><p>导入 TensorFlow 验证：</p><p>python</p><p>运行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="built_in">print</span>(tf.__version__)  <span class="comment"># 应输出 2.10.0，无报错</span></span><br></pre></td></tr></table></figure></li></ol><p>若仍报错，执行以下兜底操作（重置环境依赖）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 卸载 TensorFlow 和 NumPy</span></span><br><span class="line">conda uninstall tensorflow numpy -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新安装（通过 conda 自动解决依赖兼容性）</span></span><br><span class="line">conda install tensorflow=2.10 numpy=1.24.3 -y</span><br></pre></td></tr></table></figure><h3 id="关键说明"><a href="#关键说明" class="headerlink" title="关键说明"></a>关键说明</h3><ul><li>TensorFlow 2.10 是最后一个支持 Python 3.9 的稳定版本，但对 NumPy 2.x 不兼容，降级 NumPy 是唯一有效解决方式。</li><li>若后续需使用 NumPy 2.x，需升级 TensorFlow 至 2.15+（需 Python 3.10+ 支持），可通过 <code>conda create -n new-env python=3.10 &amp;&amp; conda install tensorflow=2.15</code> 创建新环境。</li></ul><h3 id="错误原因分析"><a href="#错误原因分析" class="headerlink" title="错误原因分析"></a>错误原因分析</h3><p>TensorFlow 2.10.0 对 Keras 版本有严格约束（<code>keras&lt;2.11,&gt;=2.10.0</code>），而当前环境中安装的 Keras 2.2.4 版本低于最低要求（2.10.0），导致依赖冲突。</p><h3 id="解决方案（核心：卸载旧版-Keras，使用-TensorFlow-内置版）"><a href="#解决方案（核心：卸载旧版-Keras，使用-TensorFlow-内置版）" class="headerlink" title="解决方案（核心：卸载旧版 Keras，使用 TensorFlow 内置版）"></a>解决方案（核心：卸载旧版 Keras，使用 TensorFlow 内置版）</h3><h4 id="步骤-1：卸载冲突的-Keras-2-2-4"><a href="#步骤-1：卸载冲突的-Keras-2-2-4" class="headerlink" title="步骤 1：卸载冲突的 Keras 2.2.4"></a>步骤 1：卸载冲突的 Keras 2.2.4</h4><p>在激活的 <code>test3</code> 环境中执行：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall keras -y  <span class="comment"># 强制卸载旧版 Keras</span></span><br></pre></td></tr></table></figure><h4 id="步骤-2：无需单独安装-Keras，直接使用-TensorFlow-内置版"><a href="#步骤-2：无需单独安装-Keras，直接使用-TensorFlow-内置版" class="headerlink" title="步骤 2：无需单独安装 Keras，直接使用 TensorFlow 内置版"></a>步骤 2：无需单独安装 Keras，直接使用 TensorFlow 内置版</h4><p>TensorFlow 2.10.0 已内置 <strong>Keras 2.10.0</strong>（完美兼容），无需额外安装。验证方式：</p><p>python</p><p>运行</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="comment"># 直接通过 tensorflow.keras 调用 Keras API</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.layers <span class="keyword">import</span> Dense, Conv2D</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证内置 Keras 版本</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;内置 Keras 版本：<span class="subst">&#123;tf.keras.__version__&#125;</span>&quot;</span>)  <span class="comment"># 输出 2.10.0，与 TensorFlow 兼容</span></span><br></pre></td></tr></table></figure><h4 id="步骤-3：若需显式安装兼容版-Keras（可选）"><a href="#步骤-3：若需显式安装兼容版-Keras（可选）" class="headerlink" title="步骤 3：若需显式安装兼容版 Keras（可选）"></a>步骤 3：若需显式安装兼容版 Keras（可选）</h4><p>若因科研代码依赖独立 Keras 包（非必须），可安装 2.10.0 版本（与 TensorFlow 2.10.0 严格匹配）：</p><p>bash</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras==2.10.0  <span class="comment"># 安装兼容版本，避免冲突</span></span><br></pre></td></tr></table></figure><h3 id="关键说明-1"><a href="#关键说明-1" class="headerlink" title="关键说明"></a>关键说明</h3><ul><li>TensorFlow 2.0+ 已将 Keras 深度整合，优先使用 <code>tensorflow.keras</code> 可彻底规避版本冲突。</li><li>若代码中存在 <code>import keras</code> 语句，需替换为 <code>import tensorflow.keras as keras</code>，确保调用内置兼容版。</li><li>执行完上述步骤后，可通过 <code>pip list | findstr keras</code> 验证 Keras 版本为 2.10.0，冲突即可解决。</li></ul>]]></content>
     
     
-    <summary type="html">&lt;p&gt;从错误信息可知，核心问题是 &lt;strong&gt;TensorFlow 2.10.0 与 NumPy 2.0.2 版本不兼容&lt;/strong&gt;（TensorFlow 2.10 基于 NumPy 1.x 编译，不支持 NumPy 2.x），同时伴随 CUDA 动态库缺失提示（非关键，仅影响 GPU 加速）。以下是分步解决方案：&lt;/p&gt;</summary>
+    <summary type="html">conda创建tensorflow环境问题</summary>
     
     
     
+    <category term="博客" scheme="https://fmdblog.ccwu.cc/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -76,15 +84,19 @@
     <link href="https://fmdblog.ccwu.cc/2025/09/03/Visual%20Studio%20Code%E4%BD%BF%E7%94%A8/"/>
     <id>https://fmdblog.ccwu.cc/2025/09/03/Visual%20Studio%20Code%E4%BD%BF%E7%94%A8/</id>
     <published>2025-09-03T09:07:54.000Z</published>
-    <updated>2026-04-27T08:48:43.577Z</updated>
+    <updated>2026-06-04T12:13:49.886Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/m0_59162248/article/details/134197329">「Python入门」python环境搭建及VScode使用python运行方式_vscode运行python-CSDN博客</a></p><span id="more"></span><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装-VS-Code"><a href="#安装-VS-Code" class="headerlink" title="安装 VS Code"></a>安装 VS Code</h3><ol><li>访问 <a href="https://code.visualstudio.com/">VS Code 官方网站</a>。</li><li>根据自己的操作系统选择合适的安装包进行下载。</li><li>运行安装程序，按照提示完成安装。</li></ol><!--more--><h3 id="安装-Python-扩展"><a href="#安装-Python-扩展" class="headerlink" title="安装 Python 扩展"></a>安装 Python 扩展</h3><ol><li>打开 VS Code。</li><li>点击左侧侧边栏中的扩展图标（四个方块）。</li><li>在搜索框中输入 “Python”。</li><li>选择 “Python” 扩展并点击安装按钮。</li></ol><h3 id="创建和打开-Python-项目"><a href="#创建和打开-Python-项目" class="headerlink" title="创建和打开 Python 项目"></a>创建和打开 Python 项目</h3><ol><li>创建一个新的文件夹作为项目目录。</li><li>打开 VS Code，点击 “文件” -&gt; “打开文件夹”，选择刚刚创建的项目目录。</li></ol><h3 id="配置-Python-解释器"><a href="#配置-Python-解释器" class="headerlink" title="配置 Python 解释器"></a>配置 Python 解释器</h3><ol><li>打开 VS Code 中的 Python 文件。</li><li>点击右下角的 Python 解释器版本号。</li><li>在弹出的列表中选择合适的 Python 解释器。</li></ol><h3 id="编写和运行-Python-代码"><a href="#编写和运行-Python-代码" class="headerlink" title="编写和运行 Python 代码"></a>编写和运行 Python 代码</h3><ol><li>在 VS Code 中创建一个新的 Python 文件，例如 <code>hello.py</code>。</li><li>编写以下代码：</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, World!&quot;</span>)</span><br></pre></td></tr></table></figure><ol><li>按下 <code>Ctrl + Shift + D</code> 打开调试面板，选择 “Python File” 配置。</li><li>点击绿色的播放按钮运行代码，你将在终端中看到输出结果。</li></ol><h2 id="常见实践"><a href="#常见实践" class="headerlink" title="常见实践"></a>常见实践</h2><h3 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h3><ol><li>在代码中设置断点，点击行号旁边的空白处。</li><li>按下 <code>F5</code> 启动调试。</li><li>使用调试面板中的按钮（继续、单步跳过、单步进入等）进行调试。</li></ol><h3 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a>代码格式化</h3><ol><li>安装 “Python” 扩展后，VS Code 会自动支持代码格式化。</li><li>按下 <code>Shift + Alt + F</code> 格式化当前文件的代码。</li></ol><h3 id="代码自动完成"><a href="#代码自动完成" class="headerlink" title="代码自动完成"></a>代码自动完成</h3><p>VS Code 的 Python 扩展提供了智能代码补全功能，当你输入代码时，会自动提示可能的代码片段和方法。</p><h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><ol><li>安装 “Git” 扩展。</li><li>在项目目录中初始化 Git 仓库，使用命令 <code>git init</code>。</li><li>使用 VS Code 中的源代码管理面板进行代码提交、推送等操作。</li></ol><p>定位到路径：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\HKEY_CURRENT_USER\AppEvents\EventLabels\WindowsLogon</span><br></pre></td></tr></table></figure><p>确保右侧 ExcludeFromCPL 的值为 0以在主题默认声音设置显示该事件该选项。</p><!--more--><center>---*本文结束*---]]></content>
     
     
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/m0_59162248/article/details/134197329&quot;&gt;「Python入门」python环境搭建及VScode使用python运行方式_vscode运行python-CSDN博客&lt;/a&gt;&lt;/p&gt;</summary>
+    <summary type="html">Visual Studio Code使用说明</summary>
     
     
     
+    <category term="博客" scheme="https://fmdblog.ccwu.cc/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -93,18 +105,19 @@
     <link href="https://fmdblog.ccwu.cc/2025/08/20/Windows11%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E9%9F%B3%E4%B9%90/"/>
     <id>https://fmdblog.ccwu.cc/2025/08/20/Windows11%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E9%9F%B3%E4%B9%90/</id>
     <published>2025-08-20T07:07:54.000Z</published>
-    <updated>2026-04-27T08:39:08.712Z</updated>
+    <updated>2026-06-04T12:13:49.949Z</updated>
     
     <content type="html"><![CDATA[<p>定位到路径：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\HKEY_CURRENT_USER\AppEvents\EventLabels\WindowsLogon</span><br></pre></td></tr></table></figure><p>确保右侧 ExcludeFromCPL 的值为 0以在主题默认声音设置显示该事件该选项。</p><span id="more"></span><p>123图床</p><center>---*本文结束*---]]></content>
     
     
-    <summary type="html">&lt;p&gt;定位到路径：&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&#92;HKEY_CURRENT_USER&#92;AppEvents&#92;EventLabels&#92;WindowsLogon&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;确保右侧 ExcludeFromCPL 的值为 0以在主题默认声音设置显示该事件该选项。&lt;/p&gt;</summary>
+    <summary type="html">Windows11设置开机音乐</summary>
     
     
     
+    <category term="博客" scheme="https://fmdblog.ccwu.cc/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -113,15 +126,19 @@
     <link href="https://fmdblog.ccwu.cc/2025/07/24/Office%E6%96%87%E4%BB%B6%E5%9C%A8%E9%A2%84%E8%A7%88%E7%AA%97%E6%A0%BC%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88/"/>
     <id>https://fmdblog.ccwu.cc/2025/07/24/Office%E6%96%87%E4%BB%B6%E5%9C%A8%E9%A2%84%E8%A7%88%E7%AA%97%E6%A0%BC%E6%97%A0%E6%B3%95%E9%A2%84%E8%A7%88/</id>
     <published>2025-07-24T07:10:22.000Z</published>
-    <updated>2026-04-27T11:36:21.069Z</updated>
+    <updated>2026-06-04T12:13:49.736Z</updated>
     
     <content type="html"><![CDATA[<p>切记：以上方法均会对注册表进行修改，一定要先备份整个注册表，以防万一，避免导致系统错误</p><span id="more"></span><h2 id="一、问题症状或错误复现："><a href="#一、问题症状或错误复现：" class="headerlink" title="一、问题症状或错误复现："></a>一、问题症状或错误复现：</h2><h3 id="1、首先要打开-文件资源管理器的-文件-预览窗格"><a href="#1、首先要打开-文件资源管理器的-文件-预览窗格" class="headerlink" title="1、首先要打开 文件资源管理器的 文件 预览窗格"></a>1、首先要打开 文件资源管理器的 文件 预览窗格</h3><p><img src="https://pica.zhimg.com/v2-077609d4db1576a48a7d873cb7a15d2a_1440w.jpg" alt="img"></p><h3 id="2、然后在文件资源管理器的右边就会显示预览窗格，此时发现Word-Excel-PPT等Office文件是无法正常预览的，显示没有预览。"><a href="#2、然后在文件资源管理器的右边就会显示预览窗格，此时发现Word-Excel-PPT等Office文件是无法正常预览的，显示没有预览。" class="headerlink" title="2、然后在文件资源管理器的右边就会显示预览窗格，此时发现Word Excel PPT等Office文件是无法正常预览的，显示没有预览。"></a>2、然后在文件资源管理器的右边就会显示预览窗格，此时发现Word Excel PPT等Office文件是无法正常预览的，显示没有预览。</h3><p><img src="https://pica.zhimg.com/v2-1b13a58572f9fa44ef04e70f85e4adfa_1440w.jpg" alt="img"></p><h2 id="二、产生的原因分析"><a href="#二、产生的原因分析" class="headerlink" title="二、产生的原因分析"></a>二、产生的原因分析</h2><p>可能是系统安装了其它软件，如WPS 或其它与Office相关的软件导致系统注册表被破坏了。</p><p>所以导致Word Excel PPT等Office文件是无法正常预览。</p><p>有些是之前安装了相关软件后又卸载了，如安装WPS。卸载后发现，docx文件不再能通过资源管理器右侧窗口预览其中内容了，xlsx文件也是如此。</p><h2 id="三、手动修改注册表解决"><a href="#三、手动修改注册表解决" class="headerlink" title="三、手动修改注册表解决"></a>三、手动修改注册表解决</h2><h3 id="1、先将所有Office相关的文件类型默认应用改为Office-之前可能被wps改为了使用wps打开）"><a href="#1、先将所有Office相关的文件类型默认应用改为Office-之前可能被wps改为了使用wps打开）" class="headerlink" title="1、先将所有Office相关的文件类型默认应用改为Office (之前可能被wps改为了使用wps打开）"></a>1、先将所有Office相关的文件类型默认应用改为Office (之前可能被wps改为了使用wps打开）</h3><p>打开设置-应用-默认应用-按文件类型指定默认应用</p><p><img src="https://pic1.zhimg.com/v2-f1da597390f649d6a67288dadc24faca_1440w.jpg" alt="img"></p><p>这样操作之后，如果预览还是不能正常显示，就要出大招了</p><h3 id="2、修改与Office文件预览相关的注册表-2个项目的值"><a href="#2、修改与Office文件预览相关的注册表-2个项目的值" class="headerlink" title="2、修改与Office文件预览相关的注册表 2个项目的值"></a>2、修改与Office文件预览相关的注册表 2个项目的值</h3><p>Office文件修改注册表的方式差不多，我们就以Word文件Docx为例</p><p><strong>1）使用快捷键 Windows +R 运行，然后输入 “regedit“ 命令,打开<a href="https://zhida.zhihu.com/search?content_id=189077502&content_type=Article&match_order=1&q=%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8&zhida_source=entity">注册表编辑器</a></strong></p><p><strong>2）找到这一项：</strong> <a href="https://zhida.zhihu.com/search?content_id=189077502&content_type=Article&match_order=1&q=PreviewHandlers&zhida_source=entity">PreviewHandlers</a> HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\PreviewHandlers</p><p>找到Microsoft Word previewer 这个值 对应的名称 ，把这个名称复制下来</p><p>我的值是：**{84F66100-FF7C-4fb4-B0C0-02CD7FB668FE}**</p><p><img src="https://pic4.zhimg.com/v2-a1d69a42e8b9c6291b6cd858af51f55d_1440w.jpg" alt="img"></p><p>如果你的路径及值是对的，就只需复制名称即可：即复制 {84F66100-FF7C-4fb4-B0C0-02CD7FB668FE}，忽略下面删除及重建的步骤。</p><p>如果你看到注册表中的Excel文件类型，即{84F66100-FF7C-4fb4-B0C0-02CD7FB668FE} 对应的数据值是一个文件系统路径，并且被错误地设置为”可扩充字符串(REG_EXPAND_SZ” 。</p><p>则需要先删除 {84F66100-FF7C-4fb4-B0C0-02CD7FB668FE} 这一项，再重新创建 {84F66100-FF7C-4fb4-B0C0-02CD7FB668FE} ，类型设置为”字符串REG_SZ”；修改其值为 修改其值为 Microsoft Word previewer</p><p>如果 你的注册表中没有找到这些项目，则可以自己按照上面的方法手工创建</p><p>注意：”Microsoft Word Previewer”或者”Microsoft Word 预览器” 最好使用前面的全英文值</p><p>“Microsoft Excel Previewer”或者”Microsoft Excel 预览器” 也是一样</p><p><strong>3）然后再找到 注册表中这一项 ShellEx</strong></p><p>HKEY_CLASSES_ROOT.docx\ShellEx{8895b1c6-b41f-4c1c-a562-0d564250836f}</p><p>原来的默认值是 {0C7FEF07-DCD9-4120-9647-D1CE32F289CD}</p><p><img src="https://picx.zhimg.com/v2-ba1250fb862515f044f75ff9a57d042d_1440w.jpg" alt="img"></p><p><strong>把它的值修改为我上面找到的值：{84F66100-FF7C-4fb4-B0C0-02CD7FB668FE}</strong></p><p><strong>我就是按照这个办法 帮自己及不少客户解决这个Office文件无法预览的问题的，百试百灵</strong></p><p>Excel PPT OUTLOOK等其它Office处理方法类同，相关的 注册项名称如下：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\PreviewHandlers]</span><br><span class="line">&quot;&#123;13D3C4B8-B179-4ebb-BF62-F704173E7448&#125;&quot;=&quot;Windows Contact Preview Handler&quot;</span><br><span class="line">&quot;&#123;1531d583-8375-4d3f-b5fb-d23bbd169f22&#125;&quot;=&quot;Windows TXT Previewer&quot;</span><br><span class="line">&quot;&#123;53BEDF0B-4E5B-4183-8DC9-B844344FA104&#125;&quot;=&quot;Microsoft Windows MAPI Preview Handler&quot;</span><br><span class="line">&quot;&#123;8a7cae0e-5951-49cb-bf20-ab3fa1e44b01&#125;&quot;=&quot;Windows Font previewer&quot;</span><br><span class="line">&quot;&#123;92dbad9f-5025-49b0-9078-2d78f935e341&#125;&quot;=&quot;Microsoft Windows Mail Mime Preview Handler&quot;</span><br><span class="line">&quot;&#123;a42c2ccb-67d3-46fa-abe6-7d2f3488c7a3&#125;&quot;=&quot;Windows RTF Previewer&quot;</span><br><span class="line">&quot;&#123;b9815375-5d7f-4ce2-9245-c9d4da436930&#125;&quot;=&quot;Microsoft Windows Mail Mime Preview Handler&quot;</span><br><span class="line">&quot;&#123;BFD468D2-D0A0-4bdc-878C-E69C2F5B435D&#125;&quot;=&quot;Microsoft Windows Mail Html Preview Handler&quot;</span><br><span class="line">&quot;&#123;E64164EB-1AE0-4C50-BAEF-A413C2B3A4BC&#125;&quot;=&quot;Microsoft 3MF Shell Thumbnail and Preview Handler&quot;</span><br><span class="line">&quot;&#123;f8b8412b-dea3-4130-b36c-5e8be73106ac&#125;&quot;=&quot;Microsoft Windows Mail Html Preview Handler&quot;</span><br><span class="line">&quot;&#123;031EE060-67BC-460d-8847-E4A7C5E45A27&#125;&quot;=&quot;Windows Media Player Rich Preview Handler&quot;</span><br><span class="line">&quot;&#123;4E834B1D-3540-45fb-AE15-39A047373596&#125;&quot;=&quot;Mindjet MindManager Preview Handler&quot;</span><br><span class="line">&quot;&#123;84F66100-FF7C-4fb4-B0C0-02CD7FB668FE&#125;&quot;=&quot;Microsoft Word previewer&quot;</span><br><span class="line">&quot;&#123;65235197-874B-4A07-BDC5-E65EA825B718&#125;&quot;=&quot;Microsoft PowerPoint previewer&quot;</span><br><span class="line">&quot;&#123;21E17C2F-AD3A-4b89-841F-09CFE02D16B7&#125;&quot;=&quot;Microsoft Visio previewer&quot;</span><br><span class="line">&quot;&#123;00020827-0000-0000-C000-000000000046&#125;&quot;=&quot;Microsoft Excel previewer&quot;</span><br></pre></td></tr></table></figure><h2 id="四、直接使用Reg文件导入注册表解决（终极大法）-如果觉得上面手工的方式太麻烦，也可直接创建一个注册表reg文件，导入进去"><a href="#四、直接使用Reg文件导入注册表解决（终极大法）-如果觉得上面手工的方式太麻烦，也可直接创建一个注册表reg文件，导入进去" class="headerlink" title="四、直接使用Reg文件导入注册表解决（终极大法）  如果觉得上面手工的方式太麻烦，也可直接创建一个注册表reg文件，导入进去"></a>四、直接使用Reg文件导入注册表解决（终极大法）  如果觉得上面手工的方式太麻烦，也可直接创建一个注册表reg文件，导入进去</h2><p><strong>切记：以上方法均会对注册表进行修改，一定要先备份整个注册表，以防万一，避免导致系统错误</strong></p><h3 id="1、复制以下字串到新建的文本文件"><a href="#1、复制以下字串到新建的文本文件" class="headerlink" title="1、复制以下字串到新建的文本文件"></a>1、复制以下字串到新建的文本文件</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\.docx\ShellEx\&#123;8895b1c6-b41f-4c1c-a562-0d564250836f&#125;]</span><br><span class="line">@=&quot;&#123;84F66100-FF7C-4fb4-B0C0-02CD7FB668FE&#125;&quot;</span><br><span class="line">[HKEY_CLASSES_ROOT\.doc\ShellEx\&#123;8895b1c6-b41f-4c1c-a562-0d564250836f&#125;]</span><br><span class="line">@=&quot;&#123;84F66100-FF7C-4fb4-B0C0-02CD7FB668FE&#125;&quot;</span><br><span class="line">[HKEY_CLASSES_ROOT\.xlsx\ShellEx\&#123;8895b1c6-b41f-4c1c-a562-0d564250836f&#125;]</span><br><span class="line">@=&quot;&#123;00020827-0000-0000-C000-000000000046&#125;&quot;</span><br><span class="line">[HKEY_CLASSES_ROOT\.xls\ShellEx\&#123;8895b1c6-b41f-4c1c-a562-0d564250836f&#125;]</span><br><span class="line">@=&quot;&#123;00020827-0000-0000-C000-000000000046&#125;&quot;</span><br><span class="line">[HKEY_CLASSES_ROOT\.pptx\ShellEx\&#123;8895b1c6-b41f-4c1c-a562-0d564250836f&#125;]</span><br><span class="line">@=&quot;&#123;65235197-874B-4A07-BDC5-E65EA825B718&#125;&quot;</span><br><span class="line">[HKEY_CLASSES_ROOT\.ppt\ShellEx\&#123;8895b1c6-b41f-4c1c-a562-0d564250836f&#125;]</span><br><span class="line">@=&quot;&#123;65235197-874B-4A07-BDC5-E65EA825B718&#125;&quot;</span><br></pre></td></tr></table></figure><h3 id="2、然后另存为-reg-文件，或保存后再改文件后缀为-reg。"><a href="#2、然后另存为-reg-文件，或保存后再改文件后缀为-reg。" class="headerlink" title="2、然后另存为.reg 文件，或保存后再改文件后缀为.reg。"></a>2、然后另存为.reg 文件，或保存后再改文件后缀为.reg。</h3><h3 id="3、再双击它或右键选择合并。"><a href="#3、再双击它或右键选择合并。" class="headerlink" title="3、再双击它或右键选择合并。"></a>3、再双击它或右键选择合并。</h3>]]></content>
     
     
-    <summary type="html">&lt;p&gt;切记：以上方法均会对注册表进行修改，一定要先备份整个注册表，以防万一，避免导致系统错误&lt;/p&gt;</summary>
+    <summary type="html">Windows中PDF TXT Excel Word PPT等Office文件在预览窗格无法预览的终级解决方法大全</summary>
     
     
     
+    <category term="博客" scheme="https://fmdblog.ccwu.cc/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -130,12 +147,12 @@
     <link href="https://fmdblog.ccwu.cc/2025/04/21/%E8%BD%AF%E4%BB%B6bug/"/>
     <id>https://fmdblog.ccwu.cc/2025/04/21/%E8%BD%AF%E4%BB%B6bug/</id>
     <published>2025-04-21T08:19:04.000Z</published>
-    <updated>2026-04-27T08:50:18.242Z</updated>
+    <updated>2026-06-04T12:13:50.257Z</updated>
     
     <content type="html"><![CDATA[<p>工科软件</p><span id="more"></span><p>solidworks：</p><p>1.服务无法启动，解决方法：更改此电脑为英文名。</p><p>2.<a href="https://imgse.com/i/pE5l3rV"><img src="https://s21.ax1x.com/2025/04/21/pE5l3rV.png" alt="pE5l3rV.png"></a></p><p>尝试：xxclean运行1650修复。</p><p>方向杰大头照：</p><p><a href="https://imgse.com/i/pE51ii4"><img src="https://s21.ax1x.com/2025/04/21/pE51ii4.png" alt="pE51ii4.png"></a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方向杰是真sb</span><br></pre></td></tr></table></figure><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">李春洋：我更是</span></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;工科软件&lt;/p&gt;</summary>
+    <summary type="html">软件bug</summary>
     
     
     
@@ -153,12 +170,12 @@
     <link href="https://fmdblog.ccwu.cc/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
     <id>https://fmdblog.ccwu.cc/2025/04/14/scr%E6%96%87%E4%BB%B6%E4%B8%8Ecad%E8%BD%AF%E4%BB%B6%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
     <published>2025-04-14T13:51:10.000Z</published>
-    <updated>2026-04-27T08:50:31.307Z</updated>
+    <updated>2026-06-04T12:13:49.807Z</updated>
     
     <content type="html"><![CDATA[<p>Fliqlo屏幕保护的使用问题：</p><span id="more"></span><p>​    如果你电脑安装了CAD等其它软件，修改了.scr文件的关联性，无“配置”及“安装”选项，请参考：修改SCR文件的关联属性。因为在“我的电脑→工具→文件夹选项→文件类型”选项卡里找不到SCR文件类型，所以只能通过“<a href="https://zhida.zhihu.com/search?content_id=173944178&content_type=Article&match_order=1&q=%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%BC%96%E8%BE%91%E5%99%A8&zhida_source=entity">注册表编辑器</a>”来手动修改：首先定位到HKEY_CLASSES_ROOT.scr，然后将右框里的【数值数据】“AutoCADScriptFile”改成“scrfile”</p><p>退出“注册表编辑器”即可恢复屏保的文件关联。</p><p><a href="https://imgse.com/i/pEWhWG9"><img src="https://s21.ax1x.com/2025/04/14/pEWhWG9.png" alt="pEWhWG9.png"></a></p><hr><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">已经改用Fliplt，不用flash，无黑屏bug的影响。</span></p><p><strong>文件下载安装</strong><br>屏保文件就一个.scr后缀文件，下载地址自己找。</p><p>设置方法：<br>将下载好的文件解压缩放到电脑以下位置<br>32Win系统: C:\Windows\System32<br>64Win系统： C:\Windows\SysWOW64</p><p>安装即可</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---]]></content>
     
     
-    <summary type="html">&lt;p&gt;Fliqlo屏幕保护的使用问题：&lt;/p&gt;</summary>
+    <summary type="html">scr文件与cad软件冲突解决方法</summary>
     
     
     
@@ -176,17 +193,19 @@
     <link href="https://fmdblog.ccwu.cc/2025/02/01/%E5%BD%93%E2%80%9C%E7%86%8A%E7%8C%AB%E2%80%9D%E9%81%87%E8%A7%81%E2%80%9C%E7%99%BD%E5%A4%B4%E9%B9%B0%E2%80%9D%EF%BC%9A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E7%9A%84%E4%B8%89%E4%B8%AA%E6%84%8F%E5%A4%96%E7%9C%9F%E7%9B%B8/"/>
     <id>https://fmdblog.ccwu.cc/2025/02/01/%E5%BD%93%E2%80%9C%E7%86%8A%E7%8C%AB%E2%80%9D%E9%81%87%E8%A7%81%E2%80%9C%E7%99%BD%E5%A4%B4%E9%B9%B0%E2%80%9D%EF%BC%9A%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E7%9A%84%E4%B8%89%E4%B8%AA%E6%84%8F%E5%A4%96%E7%9C%9F%E7%9B%B8/</id>
     <published>2025-02-01T02:04:23.000Z</published>
-    <updated>2025-02-01T02:11:36.560Z</updated>
+    <updated>2026-06-04T12:13:50.077Z</updated>
     
     <content type="html"><![CDATA[<h4 id="导言：被误解的双人舞"><a href="#导言：被误解的双人舞" class="headerlink" title="导言：被误解的双人舞"></a><strong>导言：被误解的双人舞</strong></h4><p>中美关系的媒体报道总是充满火药味，但数据揭示着另一面：平均每17分钟就有一架航班跨越太平洋，迪士尼乐园里“花木兰”与“美国队长”并肩游行，硅谷科技公司会议室飘着珍珠奶茶的香气…这场大国博弈远比我们想象的复杂。本文将带您穿越表象，看见三个鲜被讨论的真相。</p><span id="more"></span><hr><h3 id="一、经济战背后的“连体婴儿”现象"><a href="#一、经济战背后的“连体婴儿”现象" class="headerlink" title="一、经济战背后的“连体婴儿”现象"></a><strong>一、经济战背后的“连体婴儿”现象</strong></h3><p><em>【反常识洞察】</em>*</p><ul><li><strong>苹果的“中国基因”</strong>：郑州富士康工厂每30秒组装一台iPhone，但每台手机27%的利润流向美国加州。当特朗普政府加征关税时，苹果股价跌幅超过中国代工厂。</li><li><strong>大豆战争的双输实验</strong>：2018年贸易战中，美国大豆滞销致中西部农场主破产激增，中国被迫高价采购巴西大豆，却意外催生亚马逊雨林砍伐量飙升27%（NASA卫星数据）。</li><li><strong>隐形依存链</strong>：中国稀土加工技术垄断全球85%市场，但高精度磁铁制造仍依赖美国专利。如同两条相互缠绕的DNA链，任何强行剥离都会引发系统性崩溃。</li></ul><hr><h3 id="二、科技冷战中的“影子合作”"><a href="#二、科技冷战中的“影子合作”" class="headerlink" title="二、科技冷战中的“影子合作”"></a><strong>二、科技冷战中的“影子合作”</strong></h3><p><em>【突破性发现】</em>*</p><ul><li><strong>马斯克的“太极密码”</strong>：上海超级工厂用12个月建成（美国需5年），特斯拉市值暴涨期间，宁德时代的电池技术同步迭代3代。竞争表象下，新能源革命正在重构游戏规则。</li><li><strong>AI实验室的“量子纠缠”</strong>：OpenAI与百度ERNIE系统都在用同样的英伟达芯片训练模型，斯坦福大学计算机系45%的研究生来自中国高校。科技铁幕存在无数缝隙。</li><li><strong>太空握手</strong>：国际空间站拒绝中国参与，但NASA不得不使用中国研发的量子加密技术保障地空通信。当人类凝视深空时，意识形态暂时失焦。</li></ul><hr><h3 id="三、Z世代重塑的“社交外交”"><a href="#三、Z世代重塑的“社交外交”" class="headerlink" title="三、Z世代重塑的“社交外交”"></a><strong>三、Z世代重塑的“社交外交”</strong></h3><p><em>【现象级观察】</em>*</p><ul><li><strong>TikTok上的文化突变</strong>：美国青少年用《一剪梅》BGM玩滑板，中国00后通过美剧《亢奋》学习俚语。这种自下而上的文化渗透正在改写传统外交剧本。</li><li><strong>电竞外交新赛道</strong>：英雄联盟全球总决赛中，中美战队对决直播观看人数超NBA总决赛，选手们赛后互换队服的场景成为民间外交新范式。</li><li><strong>留学代购的蝴蝶效应</strong>：波士顿大学中国留学生帮邻居代购老干妈，意外促成社区华人超市与Whole Foods的供货协议。微观层面的个体连接正在编织新型关系网络。</li></ul><hr><h3 id="结语：寻找第3选择"><a href="#结语：寻找第3选择" class="headerlink" title="结语：寻找第3选择"></a><strong>结语：寻找第3选择</strong></h3><p>中美关系不是非黑即白的棋局，而更像不断调色的油画。当华盛顿智库模拟台海冲突时，深圳的工程师正在为加州电网设计智能管理系统；当五角大楼报告渲染威胁论时，纽约大都会博物馆正为《千里江山图》特展加装防弹玻璃。或许答案藏在一组矛盾数据中：皮尤调查显示美国民众对华负面态度达历史新高，但中文学习人数过去五年翻了三倍——恐惧与好奇永远并存。这恰是希望所在：当两个文明持续对视，第三次对视终将超越对抗与合作，诞生人类文明的新维度。</p>]]></content>
     
     
-    <summary type="html">&lt;h4 id=&quot;导言：被误解的双人舞&quot;&gt;&lt;a href=&quot;#导言：被误解的双人舞&quot; class=&quot;headerlink&quot; title=&quot;导言：被误解的双人舞&quot;&gt;&lt;/a&gt;&lt;strong&gt;导言：被误解的双人舞&lt;/strong&gt;&lt;/h4&gt;&lt;p&gt;中美关系的媒体报道总是充满火药味，但数据揭示着另一面：平均每17分钟就有一架航班跨越太平洋，迪士尼乐园里“花木兰”与“美国队长”并肩游行，硅谷科技公司会议室飘着珍珠奶茶的香气…这场大国博弈远比我们想象的复杂。本文将带您穿越表象，看见三个鲜被讨论的真相。&lt;/p&gt;</summary>
+    <summary type="html">当“熊猫”遇见“白头鹰”：中美关系的三个意外真相</summary>
     
     
     
     <category term="国际" scheme="https://fmdblog.ccwu.cc/categories/%E5%9B%BD%E9%99%85/"/>
     
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -195,17 +214,19 @@
     <link href="https://fmdblog.ccwu.cc/2025/01/20/%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%8C%E5%86%B2%E7%AA%81%E5%8F%AF%E4%BB%A5%E9%81%BF%E5%85%8D/"/>
     <id>https://fmdblog.ccwu.cc/2025/01/20/%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%EF%BC%9A%E7%AB%9E%E4%BA%89%E4%B8%8D%E5%8F%AF%E9%81%BF%E5%85%8D%EF%BC%8C%E5%86%B2%E7%AA%81%E5%8F%AF%E4%BB%A5%E9%81%BF%E5%85%8D/</id>
     <published>2025-01-20T11:14:20.000Z</published>
-    <updated>2025-02-01T02:12:56.948Z</updated>
+    <updated>2026-06-04T12:13:50.385Z</updated>
     
     <content type="html"><![CDATA[<p>​    中美关系正站在历史的十字路口。两个大国之间的博弈不仅关乎各自国家命运，更深刻影响着21世纪的世界格局。当前中美关系呈现出前所未有的复杂性：经济上深度依存，政治上分歧加剧，科技上竞争激烈，安全上互信缺失。这种复杂局面既不同于冷战时期的美苏对抗，也有别于21世纪初的中美合作。理解中美关系的本质，需要超越简单的对抗或合作思维，在更宏大的历史视野中把握两国关系的演进逻辑。</p><span id="more"></span><p><strong>一、历史镜鉴：大国关系的演进逻辑</strong></p><p>​    历史是最好的教科书。15世纪以来，世界先后经历了葡萄牙、西班牙、荷兰、英国、美国等国家的崛起过程。这些历史经验表明，新兴大国与守成大国之间的关系往往经历竞争、对抗、调整、共处的演变过程。英国在19世纪取代荷兰成为世界霸主时，通过工业革命和自由贸易实现了和平崛起，但20世纪初德国挑战英国霸权却引发了两次世界大战。</p><p>​    中美关系的发展轨迹与历史经验既有相似之处，也有独特之处。1972年尼克松访华打破了两国长期隔绝的状态，1979年建交后两国关系快速发展。2001年中国加入WTO后，中美经济深度融合，形成了”中美国”（Chimerica）的特殊关系。但2010年后，随着中国综合国力快速提升，美国对华战略逐步转向遏制。</p><p>​    当前中美关系的新特征在于：经济相互依存程度前所未有，2020年双边贸易额超过5600亿美元；科技竞争领域全面扩展，从5G到人工智能；地缘政治博弈空间多维化，从亚太地区到全球范围。这种既竞争又依存的关系模式在历史上没有先例。</p><p><strong>二、现实困境：竞争与合作的交织</strong></p><p>​    经济领域，中美形成了深度互嵌的产业链。美国需要中国的制造能力和消费市场，中国依赖美国的技术和创新体系。但美国对中国实施科技封锁，限制高科技产品出口，将中国企业列入实体清单。这种”脱钩”政策不仅损害中国企业利益，也重创美国半导体等行业的全球供应链。</p><p>​    科技竞争已成为中美博弈的主战场。美国在基础研究和原始创新方面具有优势，中国在应用研究和产业化方面表现突出。两国在人工智能、量子计算、清洁能源等前沿领域的竞争，既推动科技进步，也带来技术壁垒和标准分裂的风险。</p><p>​    地缘政治博弈呈现多维度特征。在亚太地区，美国强化同盟体系，中国推进”一带一路”倡议。在全球治理领域，气候变化、疫情防控等议题需要中美合作，但战略互信的缺失制约着合作成效。这种竞争与合作并存的局面将持续相当长时间。</p><p><strong>三、未来之路：构建新型大国关系</strong></p><p>​    构建新型大国关系需要双方共同努力。中国坚持和平发展道路，提出构建人类命运共同体理念。美国需要调整心态，接受中国崛起的现实。两国应建立有效的危机管控机制，防止误判和冲突。</p><p>​    经济领域，双方应维护全球产业链供应链稳定，避免”脱钩”对世界经济造成冲击。科技领域，既要保持良性竞争，也要加强在气候变化、公共卫生等全球性挑战中的合作。人文交流是增进理解的重要渠道，应继续推进教育、文化等领域的交流合作。</p><p>​    全球治理需要中美协调合作。气候变化、疫情防控、核不扩散等跨国问题，没有中美合作难以有效应对。两国应承担大国责任，为完善全球治理体系作出贡献。</p><p>​    中美关系的未来取决于双方的选择。竞争不可避免，但冲突可以避免。两国需要超越零和思维，在竞争中寻找合作空间，在博弈中探索共处之道。这不仅符合两国人民根本利益，也是国际社会的普遍期待。历史将证明，合作共赢才是中美关系的最佳选择。</p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;​    中美关系正站在历史的十字路口。两个大国之间的博弈不仅关乎各自国家命运，更深刻影响着21世纪的世界格局。当前中美关系呈现出前所未有的复杂性：经济上深度依存，政治上分歧加剧，科技上竞争激烈，安全上互信缺失。这种复杂局面既不同于冷战时期的美苏对抗，也有别于21世纪初的中美合作。理解中美关系的本质，需要超越简单的对抗或合作思维，在更宏大的历史视野中把握两国关系的演进逻辑。&lt;/p&gt;</summary>
+    <summary type="html">中美关系：竞争不可避免，冲突可以避免</summary>
     
     
     
     <category term="国际" scheme="https://fmdblog.ccwu.cc/categories/%E5%9B%BD%E9%99%85/"/>
     
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -214,17 +235,19 @@
     <link href="https://fmdblog.ccwu.cc/2023/04/24/ai/"/>
     <id>https://fmdblog.ccwu.cc/2023/04/24/ai/</id>
     <published>2023-04-24T14:46:37.000Z</published>
-    <updated>2023-04-25T11:23:57.091Z</updated>
+    <updated>2026-06-04T12:13:49.516Z</updated>
     
     <content type="html"><![CDATA[<h1 id="ChatGPT：与聊天机器人交互的新体验"><a href="#ChatGPT：与聊天机器人交互的新体验" class="headerlink" title="ChatGPT：与聊天机器人交互的新体验"></a>ChatGPT：与聊天机器人交互的新体验</h1><p>ChatGPT是一个基于OpenAI GPT模型的聊天机器人，它在自然语言处理领域取得了一定的成就。作为一名AI爱好者和学生，我对这个项目充满着兴趣和好奇。</p><span id="more"></span><h2 id="1-ChatGPT基本访问"><a href="#1-ChatGPT基本访问" class="headerlink" title="1. ChatGPT基本访问"></a>1. ChatGPT基本访问</h2><p>ChatGPT可以通过网页、手机APP等多种方式进行访问。我们可以在输入框中输入问题或对话内容，ChatGPT会自动分析语义并生成回答。在实际体验中，我发现ChatGPT的表现非常精准，能够快速准确地理解用户需求并给出恰当的答案。</p><p>例如，在询问天气方面，ChatGPT会根据用户所在地区给出实时的天气信息；在提问时间方面，则会根据当前时区给出准确时间。同时，它还具备情感识别能力，能够合理地回应用户情感变化。</p><h2 id="2-ChatGPT技术特点"><a href="#2-ChatGPT技术特点" class="headerlink" title="2. ChatGPT技术特点"></a>2. ChatGPT技术特点</h2><p>ChatGPT采用了深度学习技术和自然语言处理技术进行实现，特别是基于Transformer架构的预训练语言模型— GPT模型。通过不断优化模型参数和微调模型结构，使得机器人能够更加智能化地进行对话。</p><p>在技术特点方面，ChatGPT具有以下优势：</p><ul><li>高效自然语言处理能力。ChatGPT能够深入理解自然语言，对用户提出的问题进行准确解析，并生成自然流畅的回答。</li><li>多轮对话能力。机器人可以通过多轮互动获取上下文信息，生成更加准确和针对性的回答。</li><li>情感识别和表达能力。机器人可以根据用户情感倾向变化，生成相应的感性回答或安慰话语。</li></ul><p>但是也存在一些缺陷：</p><ul><li>对话过程中容易出现歧义或误解。由于模型训练的局限性，机器人无法完全理解某些复杂问题或深层次语义。</li><li>缺少个性化与场景感知能力。机器人无法像人类一样进行针对性操作或交互行为。</li></ul><h2 id="3-ChatGPT的未来展望"><a href="#3-ChatGPT的未来展望" class="headerlink" title="3. ChatGPT的未来展望"></a>3. ChatGPT的未来展望</h2><p>随着科技的不断发展，聊天机器人将会变得越来越智能、个性化和优化化。并且ChatGPT作为AI技术中一种在自然语言处理领域取得成就的项目，在未来有着广阔的发展空间。</p><p>未来聊天机器人可能会实现以下几点：</p><ul><li>更加自然流畅的语言生成和交互过程，向着人类智商、情感和社交能力靠近。</li><li>结合VR、AR等技术，产生和预测出场景信息，并且可以进行更加针对性的操作和交互行为。</li><li>更加 “用户中心化”，对于不同人群有制定化的回答和服务。</li></ul><p>聊天机器人越来越成为人们生活中不可缺少的一部分，这也引发了更多关于技术发展与伦理问题的讨论。在这样的前景下，ChatGPT作为一个重要的项目，将继续在AI领域中有所发展。</p><h1 id="ChatGPT的评价"><a href="#ChatGPT的评价" class="headerlink" title="ChatGPT的评价"></a>ChatGPT的评价</h1><p>ChatGPT是一个基于OpenAI GPT模型的聊天机器人，它在自然语言处理领域取得了一定的成就。本文将从机器人交互、技术实现和未来发展等方面对ChatGPT进行评价。</p><h2 id="1-机器人交互"><a href="#1-机器人交互" class="headerlink" title="1. 机器人交互"></a>1. 机器人交互</h2><p>ChatGPT在人机交互方面表现不俗。它能够通过对话理解用户提出的问题，并给出合理的回答。尤其是在日常生活中常见的问题，如天气、时间、新闻等，ChatGPT都能够迅速且准确地给出答案。此外，它还具备一定的情感识别能力，在用户情感倾向变化较大时给出相应建议或安慰。</p><p>然而，在某些复杂场景下，ChatGPT仍存在理解困难或信息不全面的问题。例如，当用户提出关于健康问题的咨询时，ChatGPT会给出一些通用建议；但是，若需针对具体病症进行分析，则需要更深入的医学知识和专业团队支持。另外，在需要进行特定操作或引导行为时，ChatGPT也无法像人类一样进行直接干预。</p><h2 id="2-技术实现"><a href="#2-技术实现" class="headerlink" title="2. 技术实现"></a>2. 技术实现</h2><p>ChatGPT是基于OpenAI GPT模型的聊天机器人，使用了广泛应用于自然语言处理领域的深度学习技术。GPT模型是一种基于Transformer架构的预训练语言模型，它能够有效地理解和生成自然语言文本。ChatGPT则是在此基础上进行微调和优化得到的。</p><p>ChatGPT通过多轮对话获取上下文信息，根据当前状态生成回答，并在不断交互中更新模型参数。同时，它还利用了问答数据库和知识图谱等资源，增强了知识库和信息检索能力。</p><p>但是，在一些方面仍有不足之处。例如，当对话过程中出现歧义或误解时，ChatGPT会直接套用预测结果而不会主动进行澄清或修正；同时，由于缺少感知与行动能力，它无法像人类一样通过观察场景来获取更多信息。</p><h2 id="3-未来发展"><a href="#3-未来发展" class="headerlink" title="3. 未来发展"></a>3. 未来发展</h2><p>ChatGPT作为智能交互的一种应用形式，在未来有着广阔的发展空间。随着深度学习和自然语言处理技术的不断进步，聊天机器人将会具备更加智能、个性化和人性化的特点。</p><p>未来聊天机器人有望实现更加自然的语言生成和交互过程，甚至能够模拟人类智商、情感和社交能力。同时，结合虚拟现实、增强现实等技术，聊天机器人也将具备更强的交互性和场景感知能力。</p><p>故，ChatGPT是一个令人期待的项目，它不断完善了我们与机器人之间的沟通方式，展示了自然语言处理领域的巨大发展潜力。</p>]]></content>
     
     
-    <summary type="html">&lt;h1 id=&quot;ChatGPT：与聊天机器人交互的新体验&quot;&gt;&lt;a href=&quot;#ChatGPT：与聊天机器人交互的新体验&quot; class=&quot;headerlink&quot; title=&quot;ChatGPT：与聊天机器人交互的新体验&quot;&gt;&lt;/a&gt;ChatGPT：与聊天机器人交互的新体验&lt;/h1&gt;&lt;p&gt;ChatGPT是一个基于OpenAI GPT模型的聊天机器人，它在自然语言处理领域取得了一定的成就。作为一名AI爱好者和学生，我对这个项目充满着兴趣和好奇。&lt;/p&gt;</summary>
+    <summary type="html">chatgpt&#39;s thinks</summary>
     
     
     
     <category term="fusion" scheme="https://fmdblog.ccwu.cc/categories/fusion/"/>
     
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -233,17 +256,19 @@
     <link href="https://fmdblog.ccwu.cc/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/"/>
     <id>https://fmdblog.ccwu.cc/2023/03/03/%E5%88%A9%E7%94%A8fusion%20app%E5%AF%B9%E6%88%91%E4%BB%AC%E7%9A%84%E5%8D%9A%E5%AE%A2%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85%E6%88%90apk/</id>
     <published>2023-03-03T02:25:49.000Z</published>
-    <updated>2023-04-24T14:43:33.249Z</updated>
+    <updated>2026-06-04T12:13:50.198Z</updated>
     
     <content type="html"><![CDATA[<p>很早之前我就在玩fusion app了，不知道的人可以先去了解一下，简单来说就是把一个网站通过修改编辑成一个apk样式，本质上还是网页，apk内容显示速度与网页显示速度有关的。</p><span id="more"></span><p>我的blog示例：<a href="https://wwvx.lanzoul.com/iqzeB0pone5c">https://wwvx.lanzoul.com/iqzeB0pone5c</a><br>密码：dfac<br>fusion app2.0下载：<a href="https://wwvx.lanzoul.com/i6muw0cuzyxa">https://wwvx.lanzoul.com/i6muw0cuzyxa</a><br>密码:bfwb</p><p>参考：<a href="https://www.jianshu.com/p/f4a61baffa7d">https://www.jianshu.com/p/f4a61baffa7d</a></p><p><em>未完待续</em></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;很早之前我就在玩fusion app了，不知道的人可以先去了解一下，简单来说就是把一个网站通过修改编辑成一个apk样式，本质上还是网页，apk内容显示速度与网页显示速度有关的。&lt;/p&gt;</summary>
+    <summary type="html">利用fusion的apk封装</summary>
     
     
     
     <category term="fusion" scheme="https://fmdblog.ccwu.cc/categories/fusion/"/>
     
+    
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -252,12 +277,12 @@
     <link href="https://fmdblog.ccwu.cc/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/"/>
     <id>https://fmdblog.ccwu.cc/2023/03/02/%E8%AE%BE%E7%BD%AE%E6%96%B0%E7%89%88%E6%9C%ACnext%E4%B8%BB%E9%A2%98%E7%9A%84404%E9%A1%B5%E9%9D%A2/</id>
     <published>2023-03-02T06:09:47.000Z</published>
-    <updated>2023-03-18T15:15:54.552Z</updated>
+    <updated>2026-06-04T12:13:50.319Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一步：创建404-md"><a href="#第一步：创建404-md" class="headerlink" title="第一步：创建404.md"></a>第一步：创建404.md</h2><p>以前的方法是创建404.html，我尝试了，渲染好像有点问题。<br>于是在网上查询一些方法，是去创建md文件，在此做个总结，也结合了自己的想法。</p><span id="more"></span><p>首先，我们在blog目录的source文件下新建404.md文件，<br>404.md内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">comments: false</span><br><span class="line">permalink: /404</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>当然，具体内容可以自己写，可以参考我的：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">title: 404</span><br><span class="line">comments: false</span><br><span class="line">permalink: /404</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;center&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## **Not Found** </span><br><span class="line"></span><br><span class="line">对不起，您所访问的页面不存在或者已删除</span><br><span class="line"></span><br><span class="line">[点击此处](https://fvccd.github.io/)</span><br><span class="line">`返回首页`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/center&gt;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;center&gt;</span><br><span class="line"></span><br><span class="line">&lt;span style=&quot;margin-left:22px; font-size:30px;color:red;background:#00ff00;&quot;&gt;已隐藏&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/center&gt;</span><br></pre></td></tr></table></figure><h2 id="第二步：配置修改"><a href="#第二步：配置修改" class="headerlink" title="第二步：配置修改"></a>第二步：配置修改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  about: /about/ || fa fa-user</span><br><span class="line">  tags: /tags/ || fa fa-tags</span><br><span class="line">  categories: /categories/ || fa fa-th</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line">  #schedule: /schedule/ || fa fa-calendar</span><br><span class="line">  留言: /guestbook/ || fa fa-comment</span><br><span class="line">  #sitemap: /sitemap.xml || fa fa-sitemap</span><br><span class="line">  公益: /commonweal/ || fa fa-heartbeat</span><br><span class="line">  相册: /404/ || fa fa-image</span><br></pre></td></tr></table></figure><p>比如，这里我想把相册界面404化，就在//中间加入404即可，图片就不放了，<span style="margin-left:18px; font-size:22px;color:red;">自行试试。</span></p><h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ul><li><p>这里就可以隐藏我们的一些东西了，在menu中把//文件信息删除，加上404就可以了，不想隐藏了，就把404换成原来的即可。</p></li><li><p>我们可以加入404模板，比如一些公益界面，<a href="https://h5.qzone.qq.com/ugc/share?sharetag=74523D4AB0F0B67551A911C4F287F27C&bp7=&bp2=&bp1=&_wv=1&res_uin=1220121213&appid=2&cellid=1634123064&no_topbar=1&subid=&g_ut=3&from=mp&g_f=5758&srctype=62&ticket=">点击这里参考</a></p></li></ul><hr>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;第一步：创建404-md&quot;&gt;&lt;a href=&quot;#第一步：创建404-md&quot; class=&quot;headerlink&quot; title=&quot;第一步：创建404.md&quot;&gt;&lt;/a&gt;第一步：创建404.md&lt;/h2&gt;&lt;p&gt;以前的方法是创建404.html，我尝试了，渲染好像有点问题。&lt;br&gt;于是在网上查询一些方法，是去创建md文件，在此做个总结，也结合了自己的想法。&lt;/p&gt;</summary>
+    <summary type="html">设置新版本next主题的404页面</summary>
     
     
     
@@ -266,6 +291,8 @@
     <category term="next" scheme="https://fmdblog.ccwu.cc/categories/404/next/"/>
     
     
+    <category term="记录" scheme="https://fmdblog.ccwu.cc/tags/%E8%AE%B0%E5%BD%95/"/>
+    
   </entry>
   
   <entry>
@@ -273,12 +300,12 @@
     <link href="https://fmdblog.ccwu.cc/2023/02/28/%E9%B8%A1%E6%B1%A4/"/>
     <id>https://fmdblog.ccwu.cc/2023/02/28/%E9%B8%A1%E6%B1%A4/</id>
     <published>2023-02-28T11:01:26.000Z</published>
-    <updated>2026-04-27T08:50:46.725Z</updated>
+    <updated>2026-06-04T12:13:50.138Z</updated>
     
     <content type="html"><![CDATA[<h3 id="努力"><a href="#努力" class="headerlink" title="努力"></a>努力</h3><p>1.不断的努力，不断的去接近梦想，越挫越勇，吃尽酸甜苦辣，能够抵御寒冬，也能够拥抱春天，这样的才叫生活。</p><span id="more"></span><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>2.不管环境多么纵容你，都要对自己有要求，保持自律的气质。或许它暂时不能改变你的现状，但假以时日，它回馈的一定让你惊喜。对自己有要求的人，总不会过得太差。一边随波逐流，一边抱怨环境糟糕的人，最没劲了。</p><h3 id="自勉"><a href="#自勉" class="headerlink" title="自勉"></a>自勉</h3><p>3.所有的努力，不是为了让别人觉得你了不起，而是为了能让自己打心里看得起自己，人生的奔跑，不在于瞬间的爆发，取决于途中的坚持，你纵有千百个理由放弃，也要找一个理由坚持，能激励你，温暖你，感动你的，不是励志语录心灵鸡汤，而是身边比你优秀的人比你还努力！自勉！</p><h3 id="心态"><a href="#心态" class="headerlink" title="心态"></a>心态</h3><p>4.抱最大希望，尽最大努力，做最坏打算，持最好心态，记住该记住的，忘记该忘记的，改变能改变的，接受成事实的，太阳总是新的，每天都是美好的日子。</p><h3 id="磨练"><a href="#磨练" class="headerlink" title="磨练"></a>磨练</h3><p>5.想得太多，麻烦就越多。人生在世，没有一种痛苦会永远伴随着你，没有必要陷在自我的漩涡里走不出来，痛苦只是一个过客，是来磨练你的意志，考验你的信心的，站起来，把困难踩在脚下。</p><h3 id="今天"><a href="#今天" class="headerlink" title="今天"></a>今天</h3><p>6.愚蠢的人总是为昨天悔恨，为明天祈祷，可惜的是少了今天的努力。<br>创造<br>7.不论你在什么时候开始，重要的是开始之后就不要停止;不论你在什么时候结束，重要的是结束之后就不要悔恨!不去耕耘 ，不去播种，再肥的沃土也长不出庄稼，不去奋斗，不去创造，再美的青春也结不出硕果。</p><h3 id="超越"><a href="#超越" class="headerlink" title="超越"></a>超越</h3><p>8.人生，是踏上了就回不了头的征程。要记住：面对，不一定最难过；孤独，不一定不快乐；得到，不一定能长久。珍惜拥有，用心生活，坦然无悔，超越自己，和生命一起精彩！</p><h3 id="顺利"><a href="#顺利" class="headerlink" title="顺利"></a>顺利</h3><p>9.人生无常，最重要的不是你所处的位置，而是你所朝的方向。你不能决定生命的长度，但你可以控制它的宽度；你不能左右天气，但你可以改变心情；你不能改变容貌，但你可以展现笑容；你不能控制他人，但你可以掌握自己；你不能预知明天，但你可以利用今天；你不能样样顺利，但你可以事事尽力。</p><h3 id="救世主"><a href="#救世主" class="headerlink" title="救世主"></a>救世主</h3><p>10.这世界从来没有什么救世主，你弱了，所有困难都强了，你强了，所有阻碍都弱了！</p><h3 id="珍惜"><a href="#珍惜" class="headerlink" title="珍惜"></a>珍惜</h3><p>11.人活一世，珍惜自己所拥有的，才能使自己幸福，追寻适合自己的，亦能使自己更幸福。受挫失误不幸和磨难，是成长的催长素，也是成熟的催熟剂。我们不希望有痛苦，但也绝不能惧怕痛苦。唯有征服自己的人，才有能力去征服一切。</p><h3 id="生命"><a href="#生命" class="headerlink" title="生命"></a>生命</h3><p>12.不要浪费你的生命，在你一定会后悔的地方上。</p><center>---*本文结束*---</center>]]></content>
     
     
-    <summary type="html">&lt;h3 id=&quot;努力&quot;&gt;&lt;a href=&quot;#努力&quot; class=&quot;headerlink&quot; title=&quot;努力&quot;&gt;&lt;/a&gt;努力&lt;/h3&gt;&lt;p&gt;1.不断的努力，不断的去接近梦想，越挫越勇，吃尽酸甜苦辣，能够抵御寒冬，也能够拥抱春天，这样的才叫生活。&lt;/p&gt;</summary>
+    <summary type="html">鸡汤</summary>
     
     
     
@@ -296,13 +323,12 @@
     <link href="https://fmdblog.ccwu.cc/2023/02/26/Fudong/"/>
     <id>https://fmdblog.ccwu.cc/2023/02/26/Fudong/</id>
     <published>2023-02-26T02:21:05.000Z</published>
-    <updated>2026-04-27T11:53:51.344Z</updated>
+    <updated>2026-06-04T12:13:49.659Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome my blog!</p><h2 id="这是我的第一篇文章"><a href="#这是我的第一篇文章" class="headerlink" title="这是我的第一篇文章"></a>这是我的第一篇文章</h2><p>今天很开心！  </p><span id="more"></span><hr><p><u>难道不是吗?</u></p><hr><p>第一项：</p><ul><li><p><strong>1</strong>.<strong>遭遇</strong></p></li><li><p><strong>2</strong>.<strong>经历</strong></p></li></ul><p><code>人生</code>很难，我是<a href="https://www.runoob.com/">菜鸟</a></p><p> <strong>这是极为特殊的历史转折期，物质文明发展到这一步注定了精神（信仰）的缺失，灵魂空虚、物欲横流，人们的精神堕入虚无主义，只能沉浸在金钱物质欲望和肉体感官刺激中，有各种不安和痛苦。多少年轻人也失去了纯真的理想和纯美的爱情。这绝不仅是我们这个星球上的生命的悲剧，而是任何一种生命在文明发展进程中注定的悲哀。生命的意义到底是什么？我们到底该怎样活着？——《重大人生启示录前言》</strong></p><p> <strong>人生就是由欲望不满足而痛苦和满足之后无趣这两者所构成。你满心期待着未来的某个快乐，未必理智认知到了它是短暂的而不会持久。人的一生的本质是痛苦，快乐只是昙花一现。</strong></p><p><strong>我们总害怕死亡，而如果人真的可以永远活着，我想人们同样会像害怕死亡一样害怕永恒，或厌倦永恒。人们总爱追问人生的意义，其实人生本无所谓意义，因为存在先于<br>质，本质之前的存在是禁绝思考的。人生的无意义赋予了人的自由，倘若人生有一个注定的意义，那么人人都如同一具机器。</strong></p><p><strong>我们诞生在这个世界是被迫的，这是最糟糕的事实。一种理想主义的人生观是：生命的长度无需受制于肉体自然的衰败，它应该是受你的心灵、你的快乐的需要而去自主选<br>择。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你的人生会是什么呢？</span><br></pre></td></tr></table></figure><center>---*本文结束*---</center>----------<p>&lt;（下面皆为测试）&gt;</p><ul><li><p><input checked="" disabled="" type="checkbox">  这个链接用 1 作为网址变量 <a href="http://www.google.com/">Google</a></p></li><li><p><input disabled="" type="checkbox">  这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/">Runoob</a></p></li></ul><p><del>然后在文档的结尾为变量赋值</del>（网址）</p><p><span style="margin-left:15px; font-size:22px;color:red;background:#00ff00;">this text is blue</span></p><p><img src="https://pic.imgdb.cn/item/63fb5d21f144a01007647d0f.jpg"></p><h2 id="2025-9-3"><a href="#2025-9-3" class="headerlink" title="2025.9.3"></a>2025.9.3</h2><h3 id="大佛宫颈抹i给"><a href="#大佛宫颈抹i给" class="headerlink" title="大佛宫颈抹i给"></a>大佛宫颈抹i给</h3><ul><li>你发</li></ul>]]></content>
     
     
-    <summary type="html">&lt;p&gt;Welcome my blog!&lt;/p&gt;
-&lt;h2 id=&quot;这是我的第一篇文章&quot;&gt;&lt;a href=&quot;#这是我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;这是我的第一篇文章&quot;&gt;&lt;/a&gt;这是我的第一篇文章&lt;/h2&gt;&lt;p&gt;今天很开心！  &lt;/p&gt;</summary>
+    <summary type="html">思考</summary>
     
     
     
